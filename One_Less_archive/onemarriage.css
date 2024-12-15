@@ -1,0 +1,10 @@
+body {
+  background-color: orange;
+  padding: 10px;
+}
+
+#ideal {
+  border: 10px ridge white;
+  width: 300px;
+  padding: 10px;
+}

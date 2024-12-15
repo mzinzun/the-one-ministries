@@ -1,0 +1,47 @@
+body {
+  background-color: yellow;
+}
+
+.purple {
+  color: purple;
+}
+
+.triangle {
+  border: 10px groove gray;
+  height: 150px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.triGod {
+  color: red;
+}
+
+.pix10 {
+  font-size: 10px;
+}
+
+.pix15 {
+  font-size: 15px;
+}
+
+.pix20 {
+  font-size: 20px;
+}
+
+.pix25 {
+  font-size: 25px;
+}
+
+.para1, .para2, .para3, .para4, .para5 {
+  border: 5px ridge green;
+  padding: 10px;
+  margin: 0 5px 10px 5px;
+}
+
+.point {
+  cursor: pointer;
+}
+

@@ -1,0 +1,215 @@
+/* body {
+background-color:gold;
+} */
+
+h1 {
+  background-color: black;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+}
+
+h3  {
+  background-color: white;
+  text-align: center;
+  font-weight: 700;
+}
+
+.need {
+  text-align: center;
+}
+
+.page {
+  display: flex;
+  flex-direction: row;
+}
+
+.haveThat {
+  background-color: darkBlue;
+  text-align: center;
+  width: 45vw;
+}
+
+.iNeed {
+  background-color: gray;
+  text-align: flex-start;
+  width: 10vw;
+  height: 400vh;
+  opacity: 0.5;
+}
+
+.needThat {
+  background-color: dodgerBlue;
+  text-align: center;
+  width: 45vw;
+}
+
+.picture:hover {
+  transform: scale(3);
+  margin-top: 35px;
+  margin-bottom: 20px;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  /*flex-wrap: wrap;*/
+}
+
+.gold {
+  color: gold;
+}
+
+.black {
+  color: black;
+}
+
+.white {
+  color: white;
+}
+
+.golden {
+  background-color: gold;
+}
+
+.pix15 {
+  margin-right: 15px;
+}
+
+.pix20 {
+  font-size: 20px;
+}
+
+.pix25 {
+  font-size: 25px;
+}
+.pix30 {
+  font-size: 30px;
+  flex-basis: 50%;
+}
+
+.pix40 {
+  font-size: 40px;
+}
+
+.pix50 {
+  font-size: 50px;
+}
+
+
+.pics:hover {
+  cursor: pointer;
+}
+
+.containerMain {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.categories {
+  display: block;
+  text-align: center;
+  background-color: black;
+  width: 280px;
+  color: white;
+  font-size: 30px;
+  margin-right: 100px;
+  border: 5px solid white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.newPage {
+  text-align: center;
+}
+
+ol {
+  margin-top: 10px;
+}
+
+li {
+  color: white;
+}
+
+.registration {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#emailHelp {
+  color: dodgerBlue;
+}
+
+#donated {
+  margin-top: 15px;
+}
+
+#registerGive {
+  padding: 15px;
+}
+
+.fieldWidth {
+  width: 300px;
+}
+
+#giveBtn, .formBtn {
+  background-color: black;
+  color: gold;
+  border: solid white 3px;
+  border-radius: 10px;
+}
+
+.upload {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.goBack {
+  background-color: white;
+  color: black;
+  border:black solid 3px;
+  border-radius: 10px;
+  margin-left: 15px;
+}
+
+img {
+  height: 50px;
+  width: 50px;
+  border: 3px gold solid;
+  border-radius: 30%;
+  margin-right: 5px;
+}
+
+.choices {
+  position: relative;
+  animation: 5s infinite alternate slidein;
+  z-index: 2;
+  margin-top: 15px;
+}
+
+.donatedItem {
+  padding: 10px;
+}
+
+@keyframes slidein {
+  0% {
+    /* margin-left: 0%; */
+    width: 100%;
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  55% {
+    opacity: 0;
+  }
+
+  100% {
+    /* margin-left: 100%; */
+    width: 350%;
+    opacity: 1;
+  }
+}

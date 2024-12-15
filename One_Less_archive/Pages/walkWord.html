@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>A Walk in the Word - One Less ministry</title>
+
+  <!------------------------------------------------ CDN Links ---------------------------------------------->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="../../../Scripts/bootstrap/bootstrap.min.css">
+
+
+  <!-- font awesome -->
+  <link rel="stylesheet" href="../../../Scripts/fontawesome/all.css">
+
+  <!-------------------------------------------------- ALL Server Links Below ---------------------------------->
+
+
+  <!-- personal CSS -->
+  <link rel="stylesheet" href="../oneless.css">
+
+</head>
+
+<body>
+
+  <h3>A Walk in the Word<button class="btn btn-primary graceBtn pix10">The Grace in Walk in the Word</button></h3>
+  <h3>Daily Devotionals and Bible Study</h3>
+  <div class="devotions">
+    <!-- <div class="allDevo"> -->
+    <button type="button" class="devoBtn1">By Bible (365)</button>
+    <div class="devoBible">
+        <li>Old Testament</li>
+        <li>New Testament</li>
+    </div>
+    
+    
+    <button type="button" class="devoBtn2">By Theme (25)</button>
+    <div class="devoTheme">
+      <li>Love</li>
+      <li>Peace</li>
+      <li>Joy</li>
+    </div>
+    <button type="button" class="devoBtn3">By Book (27/39)</button>
+    <div class="devoBook">
+      <ol>Old Testament
+        <li>Genesis</li>
+        <li>Exodus</li>
+      </ol>
+      <ol>New Testament
+        <li>Matthew</li>
+        <li>Mark</li>
+      </ol>
+    </div>
+    <button type="button" class="devoBtn4">By Character (40)</button>
+    <div class="devoCharacter">
+      <li>God</li>
+      <li>Jesus</li>
+      <li>Moses</li>
+      <li>Paul</li>
+      <li>Elijah</li>
+    </div>
+    <button type="button" class="devoBtn5">By Prophet (17)</button>
+    <div class="devoTestament">
+      <li>Isaiah</li>
+      <li>Jeremiah</li>
+      <li>Ezekiel</li>
+    </div>
+  </div>
+  <br>
+  <div class="white">
+    <li>Small Bite: One Bible Verse</li>
+    <li>Big Bite: One passage of cohesive scripture</li>
+  </div>
+  <br><br>
+  <div class="journal">
+    <form class="form-group white journalForm">
+      <label class="pink" for='list'>My Scripture Reading</label>
+      <textarea class="form-control scripParam" id="scripEntry" required></textarea><br>
+      <label class="pink" for='list'>My Journal Entries</label>
+      <textarea class="form-control param" id="entry" required></textarea><br>
+      <button type='submit' class='btn' id='submitButton'>Submit</button>
+    </form>
+
+    <!-- this area should contain date, scripture reading, and user's journal entry -->
+    <ol class="journalEntry white"></ol>
+    <ol>
+      <p>I have made <span class="journalCount darkBlue">###</span> journal entries.</p>
+      <p id="logbook">Potential Upgrades</p>
+      <li class="white">consider adding counter for total number of entries</li>
+      <li class="white">consider changing color of date or color of entry for better visual clarity</li>
+    </ol>
+  </div>
+  <br><br>
+
+
+
+  <button class="goBack">Go-Back</button>
+  <button><a class="button" href="../home.html#home">Home</a></button>
+
+  <!----------------------------------- CDN Scripts Below ------------------------------------------------------>
+  <!-- jquery -->
+  <script src="../../../Scripts/jquery/jquery-3.3.1.min.js"></script>
+
+  <!--Popper -->
+  <script src="../../../Scripts/popper/popper.min.js"></script>
+
+  <!-- Bootstrap -->
+  <script src="../../../Scripts/bootstrap/bootstrap.min.js"></script>
+
+  <!----------------------------------- Server Scripts Below -------------------------------------------------->
+
+
+  <!--<script src="https://cdn.tlm.cloud/jquery/3.3.1/jquery-3.3.1.min.js"-->
+  <!--  integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"-->
+  <!--  crossorigin="anonymous"></script>-->
+  <!--<script src="https://cdn.tlm.cloud/popper.js/1.14.3/umd/popper.min.js"-->
+  <!--    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"-->
+  <!--    crossorigin="anonymous"></script>-->
+  <!--<script src="https://cdn.tlm.cloud/bootstrap/4.1.3/js/bootstrap.min.js"-->
+  <!--  integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"-->
+  <!--  crossorigin="anonymous"></script>-->
+
+  <!--<script src="https://cdn.tlm.cloud/semantic-ui/2.4.1/semantic.min.js"-->
+  <!--  integrity="sha384-6urqf2sgCGDfIXcoxTUOVIoQV+jFr/Zuc4O2wCRS6Rnd8w0OJ17C4Oo3PuXu8ZtF"-->
+  <!--  crossorigin="anonymous"></script>-->
+
+  <script src="../main.js"></script>
+
+  <script type="text/javascript">
+    $(document)
+      .ready(function () {
+        $('.tab.demo .menu .item')
+          .tab({
+            history: true,
+            context: $('.tab.demo')
+          })
+          ;
+      })
+      ;
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1217 @@
+body {
+  background-image: url("images/cross.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 5px;
+}
+#rtnMsg {
+  color: white;
+}
+.comboBorder {
+  border: solid blue 5px;
+  height: 120px;
+  width: 130px;
+  position: absolute;
+}
+
+#bib {
+  color: chartreuse
+}
+
+#word {
+  color: white;
+  margin-top:-13px;
+  margin-bottom: 0;
+  margin-left: 32px;
+  margin-right: 0;
+  background-color: orange;
+  position: relative;
+}
+
+h1 {
+  background-color: yellow;
+  text-align: center;
+  font-family: fantasy;
+  height: 60px;
+  width: 100%;
+  padding: 0;
+}
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  background-color: yellow;
+  color: black;
+  text-align: center;
+  font-family: fantasy;
+  font-size: 35px;
+  height: 40px;
+  width: 100%;
+  font-weight: 500;
+}
+
+h4 {
+  color: black;
+  background-color: yellow;
+  text-align: center;
+  font-family: fantasy;
+  font-size: 20px;
+  height: 30px;
+  width: 100%;
+}
+
+
+.jumbotron {
+background-color: lightskyblue;
+display: flex;
+flex-direction: column;
+margin: 55px;
+border: 10px solid white;
+border-radius: 5px;
+}
+
+
+.trngCenter {
+  margin-bottom: 15px;
+  color: darkBlue;
+  text-align: center;
+  font-size: 25px;
+  background-color: white;
+  /* margin: 40px 0 10px 0; */
+}
+
+#small {
+  color: purple;
+}
+
+.welcome {
+  padding: 15px;
+}
+
+#me {
+  text-align: center;
+  font-size: 135px;
+  margin-bottom: 0;
+}
+
+.doors {
+  display: flex;
+  justify-content: space-around;
+}
+
+.personal {
+  color: white;
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.oneLiner li {
+  color: white;
+  text-align: center;
+}
+
+.frame  {
+  border: 8px ridge yellow;
+  border-radius: 15px;
+}
+
+.test li {
+  color: white;
+}
+
+.xWide{
+  width: 275px;
+}
+
+.title {
+  color: lightskyblue;
+}
+
+.intro {
+  width: 850px;
+}
+
+#story {
+  width: 315px;
+  height: 100px;
+}
+
+#userName {
+  margin-left: 32px;
+}
+
+.output {
+  color: white;
+}
+
+.color {
+  color:lime;
+}
+
+.introMsg {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.red {
+  color: red;
+  font-size: 30px;
+  border: 15px ridge red;
+  border-radius: 15px;
+}
+
+.gWordsImage {
+  background-image: url("images/cloud_nature.jpeg");
+  font-size: 25px;
+  color: white;
+  height: 250px;
+  width: 600px;
+  border-radius: 15px;
+  border: 5px solid red;
+  padding: 10px;
+}
+
+.main {
+  background-color: yellow;
+}
+
+.clr {
+  color: red;
+  font-size: 25px;
+}
+
+.clr:hover {
+  background-color: dodgerblue;
+  cursor: pointer;
+}
+
+.layout{
+  display: block;
+  color: blue;
+  font-size: 20px;
+  margin-bottom: 1rem;
+}
+
+#subtitle {
+  text-align: center;
+}
+
+#myPic {
+  font-size: 165px;
+  position: absolute;
+  margin-left: 135px;
+}
+
+#vidBox {
+  height: 650px;
+  width: 750px;
+  border: ridge 15px green;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#myVideo {
+  color: purple;
+  position: absolute;
+  background-color: green;
+  margin-top: -20px;
+  margin-left: 185px;
+  /* margin: -20 0 0 185; */
+}
+
+.vidScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#target {
+  color:red;
+  margin-top: 355px;
+  margin-left: 35px;
+  position: absolute;
+  width: 600px;
+  height:200px;
+}
+
+.fa-play, .fa-f0ea {
+  color: yellow;
+  margin-top: 275px;
+  text-align: center;
+}
+
+.encTopics {
+  color: pink;
+}
+
+#rtnMsg {
+  font-size: 20px;
+  color: chartreuse;
+}
+
+.doolie {
+  color: white;
+}
+
+.less {
+  background-color: white;
+  color: red;
+  font-size: 25px;
+}
+
+.totCount {
+  color: white;
+}
+
+#praySubmission {
+  color: royalblue;
+  background-color: chartreuse;
+}
+
+#credit {
+  color: chartreuse;
+}
+
+.nameSin {
+  background-color: white;
+  color:blue;
+  border: 10px groove white;
+  width: 135px;
+  height: 200px;
+  margin-top: 15px;
+  margin-left: 15px;
+  text-align: center;
+}
+
+.confession {
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+  width: 500px;
+  margin-top: 10px;
+}
+
+#confessBtn {
+  width: 120px;
+}
+
+.cross {
+  position: absolute;
+  /* margin-top: 100px; */
+  margin-left: 342px;
+  top: 385px;
+  border: 15px ridge;
+  /* background: #ffc; */
+  border-image: radial-gradient(#ff2, #55f) 100;
+  border-image-outset: 4.5;  /* = 1.5 * 1.4rem = 2.1rem */
+}
+
+.confessPlace1 {
+  color:blue;
+  border-left: 5px groove white;
+  border-top:5px groove white;
+  border-bottom:5px groove white ;
+  width: 50px;
+  height: 20px;
+}
+
+.confessPlace2 {
+  color:blue;
+  margin-left:49px;
+  margin-top: -61px;
+  border-left: 5px groove white;
+  border-top:5px groove white;
+  border-right:5px groove white ;
+  width: 20px;
+  height: 30px;
+}
+
+.confessPlace3 {
+  color:blue;
+  margin-left:69px;
+  margin-top: -19px;
+  border-right: 5px groove white;
+  border-top:5px groove white;
+  border-bottom:5px groove white ;
+  width: 50px;
+  height: 20px;
+}
+
+.confessPlace4 {
+  color:blue;
+  margin-left:49px;
+  margin-top:-18px;
+  border-left: 5px groove white;
+  border-right:5px groove white;
+  border-bottom:5px groove white;
+  width: 20px;
+  height: 135px;
+}
+
+#sin {
+  width: 75px;
+  font-size: small;
+  text-align: center;
+  margin-left: 17px;
+}
+
+#sinResponse {
+  color: crimson;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.rndm, .randNumber {
+  color:  pink;
+}
+
+.journal {
+  border: 5px double white;
+  width: 500px;
+  color: red;
+}
+
+.confessSin {
+  color: white;
+}
+
+.white, #white {
+  color: white;
+}
+
+.pink {
+color: pink;
+}
+
+.chartreuse, #chartreuse {
+  color: chartreuse;
+}
+
+.crimson, #crimson {
+  color:  crimson;
+}
+
+.deepPink {
+  color: deeppink;
+}
+
+.orangeRed, #orangeRed {
+  color: orangered;
+}
+
+.darkBlue, #darkBlue {
+  color: darkblue;
+}
+
+.dodgerblue {
+  color: dodgerblue;
+}
+
+.purple {
+  color: purple;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.pix10 {
+  font-size: 10px;
+}
+
+.pix15 {
+  font-size: 15px;
+}
+
+.pix20{
+  font-size: 20px;
+}
+
+.pix25 {
+  font-size: 25px;
+}
+
+.pix30 {
+  font-size: 30px;
+}
+
+.pix50 {
+  font-size: 50px;
+}
+
+.pix70 {
+  font-size: 70px;
+}
+
+.pix100 {
+  font-size: 100px;
+}
+
+.inventory {
+  border: 5px groove royalblue;
+  width: 800px;
+}
+
+.param {
+  width: 375px;
+}
+
+.scripParam {
+  width: 190px;
+}
+
+.middle {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.newsStory, .newsThought {
+  border: 8px ridge;
+  border-color: yellow yellow red red;
+  border-radius: 15px;
+  height: 150px;
+  width: 200px;
+  text-align: center;
+  font-weight: 700;
+  background-image: url("images/highClouds.jpeg");
+}
+
+.smallBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mediaThought {
+  margin-left: 5px;
+}
+
+.newPage {
+  background-color: dodgerblue;
+}
+
+.signIn {
+  margin-top: 80px;
+}
+
+#smFont{
+  font-size: 12px;
+}
+
+.green {
+  color: green;
+}
+
+.member {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.outset {
+  width: 10rem;
+  background: #cef;
+  border: 1.4rem solid;
+  border-image: radial-gradient(#ff2, #55f) 80;
+  border-image-outset: 1.5;  /* = 1.5 * 1.4rem = 2.1rem */
+  margin: 2.1rem;
+}
+
+.xtreme {
+  display: flex;
+  align-items: center;
+}
+
+.ex {
+  margin-top:-104px;
+  margin-left: 44px;
+  position: absolute;
+}
+
+.word {
+  position: relative;
+  z-index: 2;
+}
+
+.tee {
+  position: relative;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  /*margin-right: 5px;*/
+  margin-left: 70px;
+}
+
+.x {
+font-family: cursive;
+}
+
+
+.raise {
+  top: 30px;
+  position: relative;
+}
+
+.treme {
+  margin-top: 40px;
+  margin-bottom: 0;
+  margin-left:  0;
+  margin-right: 0;
+}
+
+.shift {
+  margin-left: 120px;
+  margin-bottom: 10px;
+}
+
+.christian {
+  margin-top: -50px;
+}
+
+.point {
+  cursor: pointer;
+}
+
+#click {
+  width: 95px;
+}
+
+.start {
+  text-align: center;
+}
+
+.devotions {
+  display: flex;
+  flex-direction: row;
+}
+
+.devoBtn1 {
+  width: 150px;
+  background-color: orange;
+}
+
+.devoBtn2 {
+  width: 150px;
+  background-color: green;
+}
+
+.devoBtn3 {
+  width: 150px;
+  background-color: black;
+}
+
+.devoBtn4 {
+  width: 150px;
+  background-color: purple;
+}
+
+.devoBtn5 {
+  width: 150px;
+  background-color: red;
+}
+
+#homeButton {
+height: 25px;
+width: 80px;
+background-color: dodgerblue;
+color: white;
+}
+
+.headerBtn {
+  display: flex;
+}
+
+.graceBtn {
+  justify-content: flex-start;
+  width: 100px;
+}
+
+.goal {
+  position: relative;
+}
+
+.pb_homeless {
+  position: absolute;
+  top: 1127px;
+}
+
+.block {
+  color: white;
+  background-color: red;
+  border: 3px ridge red;
+  width: 135px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.fruit1, .fruit2, .fruit3, .qual1, .qual2, .qual3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: -31px;
+}
+
+.fruitSpirit,.qualSpirit {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-top:25px;
+}
+
+.cent{
+  text-align: center;
+}
+
+.love {
+  margin-top: 15px;
+}
+
+.blockLove {
+  color: red;
+  background-color: white;
+  border: 3px ridge red;
+  width: 115px;
+  text-align: center;
+}
+
+.allFruit {
+  border: 5px double white;
+  padding: 10px;
+}
+
+.shootPics {
+  display: flex;
+  justify-content: space-around;
+}
+
+.graceland {
+  text-align: center;
+  border: 10px ridge darkblue;
+  height: 300px;
+  width: 700px;
+}
+
+.graceScrip {
+  margin: 0;
+}
+
+.grScrip  {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.startPage {
+  background-color: crimson;
+}
+
+.cont {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+}
+.subCont {
+  border: 15px ridge darkblue;
+  width: 400px;
+  height: 250px;
+  text-align: center;
+}
+
+.blink {
+  text-decoration: blink;
+}
+
+.red-text-shadow {
+  text-shadow: red 0 -2px;
+}
+
+.white-text-with-blue-shadow {
+  text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+  color: white;
+  font: 1.5em Georgia, serif;
+}
+
+.bookcases {
+  display: flex;
+  margin-left: 150px;
+}
+
+.c1 {
+background-color: green;
+}
+
+.case1 {
+  position: absolute;
+}
+
+.c2 {
+  background-color: blue;
+  /*margin-top:-30px;*/
+  /*margin-left:50px;*/
+}
+
+.case2 {
+  margin-top: 133px;
+  margin-left: 65px;
+}
+
+.c3 {
+  background-color: red;
+}
+
+.case3 {
+  margin-top: 0px;
+  margin-left: -50px;
+}
+
+.c4 {
+  background-color: purple;
+}
+
+.case4 {
+  margin-top: 133px;
+  margin-left: 65px;
+}
+
+.bookcases {
+  margin-top: 50px;
+}
+
+.brdr  {
+  border: 20px black;
+  height: 20px;
+}
+
+.awesome {
+  border: 15px outset black;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  margin-right: 30px;
+  margin-bottom: 10px;
+}
+
+.awe {
+  font-family: cursive;
+  font-style: italic;
+  text-align: right;
+}
+
+.God {
+  font-family: fantasy;
+  text-align: left;
+}
+
+.amazing {
+  font-family: cursive;
+  font-style: italic;
+  text-align: right;
+}
+
+.rojo {
+  color: red;
+}
+
+.one {
+  border: 15px outset black;
+  border-radius: 50%;
+  background-color: black;
+  height: 80px;
+  width: 75px;
+}
+
+.oneFirst {
+  
+}
+
+.oneMid {
+  
+}
+
+.oneLast {
+  
+}
+
+.number {
+  text-align: center;
+  font-size: 35px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.coin {
+  margin-top: 35px;
+}
+
+.tShirt {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.notHate {
+  border: 10px outset black;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  background-color: gray;
+  margin-bottom: 10px;
+}
+
+.style1 {
+  font-family: fantasy;
+  font-weight: 500;
+  color: white;
+  margin-left: 10px;
+  margin-top: 25px;
+}
+
+.style2 {
+  text-align: center;
+  color: darkGray;
+  font-size: 15px;
+}
+
+.style3 {
+  font-family: cursive;
+  text-align: right;
+  margin-right: 5px;
+}
+
+.better {
+  border: 10px outset black;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  background-color: black;
+  margin-bottom: 10px;
+}
+
+.better1 {
+  font-family: fantasy;
+  font-weight: 500;
+  color: white;
+  margin-left: 10px;
+  margin-top: 25px;
+}
+
+.better2 {
+  text-align: center;
+  color: white;
+  font-size: 15px;
+}
+
+.better3 {
+  font-family: cursive;
+  color: white;
+  text-align: right;
+  margin-right: 5px;
+}
+
+.giveLove {
+  border: 10px outset black;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  background-color: black;
+  margin-bottom: 10px;
+}
+
+.giveLove1 {
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.giveLove2 {
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.resolve {
+  border: 10px outset black;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  background-color: black;
+  margin-bottom: 10px;
+}
+
+.resolve1 {
+  text-align: left;
+}
+
+.resolve2 {
+  text-align: right;
+}
+
+.affirm {
+  border: 10px outset black;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  background-color: black;
+  margin-bottom: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* .affirm1 {
+  text-align: center;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+.causes {
+  color: white;
+}
+
+.pic {
+height: 125px;
+width: 125px;
+border: 15px groove white;
+}
+
+.contLink li a {
+  color: red;
+}
+
+.version {
+  color: red;
+  font-size: 12px;
+  float: right;
+}
+
+button, .button {
+  height: 25px;
+  margin-left: 5px;
+  background-color:navy;
+  color:white;
+  width: 80px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+#payBtn {
+  width: 105px;
+}
+
+.tester3 {
+  position: relative;
+  z-index: 2;
+}
+
+img {
+  height: 350px;
+  width: 350px;
+  margin-bottom: 5px;
+  }
+  
+.decide {
+  color: blue;
+  font-size: 20px;
+  text-align: center;
+}
+
+#sayings {
+  font-size: 8px;
+}
+
+.welcome {
+  color: white;
+}
+
+.cloud {
+  float: left;
+  height: 200px;
+  width: 200px;
+  margin-right: 15px;
+  border: 15px groove yellow;
+}
+
+.clear {
+width: 150px;
+}
+
+.wide{
+  width: 180px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.sub {
+  margin-right: 5px;
+}
+
+.other {
+  color: white;
+}
+
+.coverPage {
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+justify-content: space-around;
+}
+
+.box {
+height: 250px;
+width: 300px;
+border: groove dodgerblue 20px;
+border-radius: 15px;
+margin-top: 15px;
+padding: 5px;
+}
+
+.merchandise {
+ display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+justify-content: space-around;
+}
+
+.merchBox {
+height: 125px;
+width: 300px;
+border: groove 20px;
+border-color: pink pink red red;
+border-radius: 15px;
+margin-top: 15px;
+padding: 5px;
+color: white;
+}
+
+.merchBox a {
+  color: white;
+}
+
+.locTabs {
+  display: flex;
+  justify-content: space-around;
+  background-color: yellow;
+}
+
+.locTabs a {
+  color: black;
+}
+
+
+footer {
+  color:white;
+}
+
+.slider {
+  animation: slide 3s ease-in-out;
+}
+
+@media screen and (min-width: 377px) and (max-width: 660px) {
+
+  .main {
+    flex-direction: column;
+  }
+
+  .trngCenter {
+    margin: 15px 0 25px 0;
+  }
+
+#scrip, .version {
+  display: none;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+#me {
+display: none;
+}
+  
+}
+
+@media screen and (max-width: 376px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .trngCenter {
+    margin: 15px 0 25px 0;
+  }
+
+#scrip, .version {
+  display: none;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+#me {
+display: none;
+}
+
+  #living {
+    display: none;
+    }
+  
+  h3,h1 {
+    font-size: 25px;
+  }
+  
+  .clear, .wide {
+    width: 149px;
+  }
+  
+  .causes {
+    color: white;
+  }
+  
+  
+  .flipper {
+    perspective: 400px;
+    position: relative;
+  }
+  
+  .flipper-object {
+    position: absolute;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+  }
+
+
+}
+
+@keyframes slide {
+  from {
+    
+  }
+  
+  to {
+    transform: translate(336px, 10px);
+  }
+}

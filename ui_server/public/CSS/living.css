@@ -1,0 +1,8 @@
+body {
+    background-color: black;
+    background-image: none;
+    /*background-image: url("../images/nightSky.jpeg");*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 5px;
+  }
