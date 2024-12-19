@@ -1,3 +1,4 @@
+[
 {
     "title": "Need For The New Life",
     "topics": [
@@ -5,7 +6,7 @@
         {"name": "Adam's Sin - Genesis 3:6-7"},
         {"name": "Individual Sin - Ecclesiates 7:20"}
     ]
-}
+},
 {
     "title": "Sharing Our Faith",
     "topics": [
@@ -15,7 +16,7 @@
         {"name": "Sharing our Faith: How to Do It - I Thesselonians 1:5"},
         {"name": "Sharing our Faith: When? - II Timothy 4:2"}
     ]
-}
+},
 {
     "title": "Suffering",
     "topics": [
@@ -24,7 +25,7 @@
         {"name": "Responses to Suffering - Job 1:21"},
         {"name": "Examples of Suffering - Jeremiah 37:15"}
     ]
-}
+},
 {
     "title": "Human Government",
     "topics": [
@@ -33,3 +34,4 @@
         {"name": "Our Responsibility to Human Government - I Peter 2:13-17"}
     ]
 }
+]

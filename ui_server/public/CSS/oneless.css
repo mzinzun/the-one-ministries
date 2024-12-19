@@ -250,7 +250,7 @@ border-radius: 5px;
   color: yellow;
 }
 
-.offer: {
+.offer {
   color: white;
 }
 
@@ -355,7 +355,7 @@ border-radius: 5px;
   position: absolute;
   width: 600px;
   height:200px;
-  padding: 5px; 
+  padding: 5px;
 }
 
 .completeTestimonial {
@@ -854,7 +854,7 @@ font-family: cursive;
     border: none;
     color: white;
     width: 100%;
-  
+
 }
 
 .devoBtn2 {
@@ -1170,7 +1170,7 @@ img {
   width: 350px;
   margin-bottom: 5px;
   }
-  
+
 .decide {
   color: blue;
   font-size: 20px;
@@ -1280,7 +1280,7 @@ footer {
   from {
     background-color: black;
   }
-  
+
   to {
     transform: translate(336px, 10px);
     background-color: red;
@@ -1311,7 +1311,7 @@ footer {
 #me {
 display: none;
 }
-  
+
 }
 
 @media screen and (max-width: 376px) {
@@ -1328,13 +1328,13 @@ display: none;
 #target {
   width: 330px;
   padding: 7px
-}  
+}
 #myPic {
   margin-left: 70px;
 }
 .topPersonal {
   width: 350px;
-}  
+}
 
 #vidBox {
   width: 360px;
@@ -1359,7 +1359,7 @@ display: none;
 
 .fullPage {
   padding: 10px;
-}  
+}
 
 .trngCtr {
   display: none;
@@ -1367,19 +1367,19 @@ display: none;
 
 .newUserSign {
   text-align: center;
-}  
+}
 
 .newButton {
   width: 80px!important;
 }
 #userName {
     margin-left: 0px;
-  }  
+  }
 
 
  .journal {
   width: 320px;
- } 
+ }
 
  #journalEntry, #myEntry{
    width: 350px;
@@ -1395,7 +1395,7 @@ display: none;
 
  .currStudy {
   width: 335px;
-}  
+}
 
 #entry {
     width: 300px;
@@ -1403,7 +1403,7 @@ display: none;
 
 .top {
    margin-top: 10px;
- } 
+ }
 
 .devotions {
   display: flex;
@@ -1433,7 +1433,7 @@ img {
   flex-direction: column;
   align-items: center;
 
-} 
+}
 
 .signIn {
   display: flex;
@@ -1496,25 +1496,25 @@ display: none;
   #living {
     display: none;
     }
-  
+
   h3,h1 {
     font-size: 25px;
   }
-  
+
   .clear, .wide {
     width: 149px;
   }
-  
+
   .causes {
     color: white;
   }
-  
-  
+
+
   .flipper {
     perspective: 400px;
     position: relative;
   }
-  
+
   .flipper-object {
     position: absolute;
     transition: transform 1s;
@@ -1525,15 +1525,12 @@ display: none;
     from {
       background-color: black;
     }
-    
+
     to {
       transform: translate(210px, 10px);
       background-color: red;
     }
-  }  
+  }
 
 
 }
-
-
-

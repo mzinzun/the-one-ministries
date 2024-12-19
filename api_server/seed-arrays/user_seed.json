@@ -1,12 +1,12 @@
 
-
+[
 {
     "firstName": "Greg",
     "lastName": "Marshall",
     "email": "gm@gm.com",
     "morals": [],
     "password": "232323"
-}
+},
 {
     "firstName": "Michael",
     "lastName": "Zinzun",
@@ -14,3 +14,4 @@
     "morals": [],
     "password": "12345"
 }
+]
