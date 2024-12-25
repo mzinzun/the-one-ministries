@@ -21,17 +21,11 @@
   /* font-size: calc(10px + 2vmin); */
   color: #333;
 }
-.app-header {
-  border: 1px solid black;
-  width: 100%;
-  /* background-color: #282c34; */
-  min-height: 20vh;
-  display: flex;
-  /* flex-direction: column; */
-  align-items: center;
-  justify-content: space-between;
-  font-size: 2em;
-  color: white;
+header {
+  z-index: 100;
+}
+main {
+  z-index: 10;
 }
 .app-main {
   border: 1px solid blue;

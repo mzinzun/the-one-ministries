@@ -1,7 +1,29 @@
-.nav {
+.nav1 {
+    border: 2px solid green !important;
     color: green !important;
     font-size: 1.5rem !important;
     font-weight: 400;
-    background-color: transparent !important;
+   z-index: 1000;
+    /* background-color: transparent !important; */
+}
+.nav2 {
+    border: 2px solid blue !important;
+    color: green !important;
+    font-size: 1.5rem !important;
+    font-weight: 400;
+    /* background-color: transparent !important; */
 
 }
+.navbar-collapse {
+    transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out !important;
+  }
+
+  .navbar-collapse.collapsing {
+    height: 0;
+    opacity: 0;
+  }
+
+  .navbar-collapse.show {
+    height: auto;
+    opacity: 1;
+  }

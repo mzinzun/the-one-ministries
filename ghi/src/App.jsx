@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Landing from './pageComponents/Landing';
 import Header from './components/Header';
@@ -11,7 +10,7 @@ function App() {
       <div className="app container-fluid">
         <Header />
         <Routes>
-        <Route exact path="/" element={<Landing />} />
+          <Route exact path="/" element={<Landing />} />
           <Route exact path="/about" element={<About />} />
           {/* Add other routes here */}
         </Routes>
