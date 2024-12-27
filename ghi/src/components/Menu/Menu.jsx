@@ -5,7 +5,7 @@ import './Menu.css';
 
 const Menu = () => {
   return (
-    <Navbar expand="lg" className='justify-content-center nav1'>
+    <Navbar expand="xl" className='justify-content-center nav1'>
       {/* <Navbar.Brand as={Link} to="/">Brand</Navbar.Brand> */}
       <Navbar.Toggle aria-controls="basic-navbar-nav"  />
       <Navbar.Collapse id="basic-navbar-nav" >

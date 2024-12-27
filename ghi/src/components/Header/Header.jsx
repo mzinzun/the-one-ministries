@@ -5,7 +5,11 @@ import Menu from '../Menu'
 const Header = () => {
     return (
         <header className="p-4 app-header">
-            <h1 className='header-title'>The One Ministries</h1>
+            <div>
+            <h1 className='header-title'>Welcome To The One Ministries</h1>
+            <h5>Training Center</h5>
+            </div>
+
             <Menu />
         </header>
     )
