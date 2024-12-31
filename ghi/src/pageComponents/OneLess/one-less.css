@@ -1,8 +1,62 @@
 .one-less {
     display: flex;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 80vh;
+    background-color: #fff;
+
+}
+.one-less ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+  }
+.one-less p {
+    font-size: 1.5rem;
+}
+.one-less-aside {
+    flex: 0 0 16rem;
+    border-right: 4px groove black;
+    background-color: #e5c228;
+    height: 80lvh;
+    padding: 0 1rem;
+    overflow-y: auto;
+}
+
+.one-less-section {
+    flex: 1;
+    background-color: antiquewhite;
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #db3d21;
+    justify-content: start;
+    height: 80vh;
+    overflow-y: auto;
+    padding: 0 5rem;
+}
+.one-less-header {
+    background-color: #e5c228;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    width: 100%;
+    color: #fff;
+    border-bottom: 2px groove black;
+}
+button{
+    padding: 0.25rem .25rem;
+    width: 100%;
+    text-align: left;
+    background-color: #e5c228;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #fff;
+}
+button:hover {
+    background-color: #9b8ced;
+}
+.active-btn {
+    background-color: red;
+    border: 1px solid black;
 }

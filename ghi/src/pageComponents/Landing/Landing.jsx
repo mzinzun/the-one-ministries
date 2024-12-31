@@ -3,6 +3,7 @@ import './Landing.css'
 import scriptArray from './scriptArray.json';
 import Welcome from '../../components/Welcome/'
 import Footer from '../../components/Footer'
+import { Link } from 'react-router';
 function Landing() {
     const [scripture, setScripture] = useState(0);
     useEffect(() => {
@@ -16,21 +17,25 @@ function Landing() {
         <>
             <main className="landing">
                 <section className='landing-section'>
-                    <div className='row news-thoughts-div'>
-                        <section className='col-3 '>
-                            <h2>News Story Headlines</h2>
+                    <div className='news-thoughts-div'>
+                        <section className='landing-news border'>
+                            <Link to='/news'>
+                                <h2>News Story Headlines</h2>
+                            </Link>
+
                         </section>
-                        <section className='col-3 my-thoughts'>
+                        <section className='landing-thoughts border'>
                             <h2>Thoughts for the Week</h2>
                         </section>
                     </div>
 
                     <section className='script'>
-                        <h2>{scriptArray[scripture].scripture}</h2>
-                        <p>{scriptArray[scripture].quote}</p>
+                        <h1 className=''>{scriptArray[scripture]}</h1>
                     </section>
                     <section className='one-less-link'>
-                        <h2>One Less Section</h2>
+                        <Link to='/one-less' className='ol-link'>
+                        <h2 className='text-gray'>One Less Lessons</h2>
+                        </Link>
                     </section>
                 </section>
                 <Welcome />

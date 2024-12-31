@@ -11,12 +11,12 @@
   text-align: center;
 }
 .app {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: center;
   min-height: 100vh;
   /* font-size: calc(10px + 2vmin); */
   color: #333;
@@ -28,7 +28,7 @@ main {
   z-index: 10;
 }
 .app-main {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -37,7 +37,7 @@ main {
   flex: 1;
 }
 .app-footer {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   width: 100%;
   background-color: #282c34;
   min-height: 20vh;
@@ -61,14 +61,6 @@ main {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {

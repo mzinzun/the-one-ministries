@@ -1,18 +1,30 @@
 .nav1 {
-    border: 2px solid green !important;
+    /* flex: 1; */
+    /* border: 2px solid green !important; */
     color: green !important;
     font-size: 1.5rem !important;
     font-weight: 400;
-   z-index: 1000;
+    z-index: 1000;
     /* background-color: transparent !important; */
 }
-.nav2 {
-    border: 2px solid blue !important;
+nav2 {
+    /* border: 2px solid blue !important; */
     color: green !important;
     font-size: 1.5rem !important;
     font-weight: 400;
     /* background-color: transparent !important; */
 
+}
+/* .navbar {
+  position: relative;
+} */
+
+.navbar-toggler {
+    /* border: 1px solid tan !important; */
+    /* color: red !important; */
+    font-size: 1.5rem !important;
+    font-weight: 400;
+    background-color: transparent !important;
 }
 .navbar-collapse {
     transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out !important;
