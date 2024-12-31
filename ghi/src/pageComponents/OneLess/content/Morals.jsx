@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import $ from 'jquery';
-import ButtonPkg from '../components/BtnPackage'
 import { Accordion } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,7 +7,7 @@ function deepcopy(obj) {
   return JSON.parse(JSON.stringify(obj))
 }
 
-const Moral = ({ user, setUser }) => {
+const Morals = ({ user, setUser }) => {
   const [scrips, setScrips] = useState([]);
 
   const navigate = useNavigate();
@@ -66,12 +65,11 @@ const Moral = ({ user, setUser }) => {
     moralArr = user.morals.map((item, index) => <li key={index}>{item}<button id={index} className="moralInvBtn" onClick={handleDelete}>Delete</button></li>)
   }
 
-  if (user.email) {
+
 
     return (
 
-      <div> {/* Parent Div */}
-        <body className="bgPicMoral">
+      <>
           <h3>Moral Inventory</h3>
           <p className="white"><img className="cloud tall" src="../images/cross.jpeg" alt="church" />I firmly believe that all believers
             should check themselves regularly against their own personal
@@ -139,16 +137,10 @@ const Moral = ({ user, setUser }) => {
 
             <ol className="listing white">{moralArr}</ol>
           </div>
-          <br /><br />
-          <ButtonPkg />
-
           {/* End Parent Div */}
-        </body>
-      </div>
+      </>
     )
-  } else {
-    navigate('/')
-  }
+
 }
 
-export default Moral
+export default Morals

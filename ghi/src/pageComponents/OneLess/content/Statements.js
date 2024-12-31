@@ -7,7 +7,7 @@ const loadStatement = () => {
 }
 
 const oneLiners = [
-    [<span>Lord, forgive my root sins and my fruit sins **</span>],
+    [<span>Lord forgive my root sins and my fruit sins **</span>],
     [<span>Repent your root sins, resist your fruit sins **</span>],
     [<span>Love is an action word **</span>],
     [<span>In all things, lead with love **</span>],
