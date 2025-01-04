@@ -5,6 +5,7 @@ import Header from './components/Header';
 import About from './pageComponents/About/About';
 import './App.css';
 import NewsStories from './pageComponents/NewsStories';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route exact path="/about" element={<About />} />
           <Route exact path="/one-less" element={<OneLess />} />
           <Route exact path="/news-stories" element={<NewsStories />} />
+          <Route exact path="/login" element={<Login />} />
           {/* Add other routes here */}
         </Routes>
       </div>

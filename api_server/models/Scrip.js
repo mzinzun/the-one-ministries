@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const scriptureSchema = new mongoose.Schema(
     {
         quote: String,
-        text: String
+        scripture: String
     }
 )
 

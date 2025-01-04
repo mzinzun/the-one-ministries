@@ -2,6 +2,7 @@
 import { useEffect, useState, useRef } from 'react';
 // import axios from 'axios';
 import './one-less.css';
+import './content/content.css'
 import MeetGod from './content/MeetGod';
 import Salvation from './content/Salvation';
 import Living from './content/Living';

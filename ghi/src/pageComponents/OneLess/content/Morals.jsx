@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import $ from 'jquery';
 import { Accordion } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 
 function deepcopy(obj) {
   return JSON.parse(JSON.stringify(obj))
@@ -9,20 +8,13 @@ function deepcopy(obj) {
 
 const Morals = ({ user, setUser }) => {
   const [scrips, setScrips] = useState([]);
-
-  const navigate = useNavigate();
-
-  const data = { className: 'goBack button', title: 'Go Back', onClick: () => window.history.back() }
-
+  const getData = async () => {
+    const resp = await fetch('http://localhost:4000/get_scriptures')
+    const data = await resp.json()
+    setScrips(data)
+  }
   useEffect(() => {
-
     // get scriptures from the database and put them on the page //
-
-    const getData = async () => {
-      const resp = await fetch('http://localhost:4000/get_scriptures')
-      const data = await resp.json()
-      setScrips(data)
-    }
     getData()
   }, [])
 
@@ -40,8 +32,8 @@ const Morals = ({ user, setUser }) => {
         body: JSON.stringify(obj)
       })
     const data = await resp.json()
-    setUser(data)
-    $(":input").val("");
+    // setUser(data)
+    // $(":input").val("");
   }
   const handleDelete = async (e) => {
     e.preventDefault();
@@ -59,22 +51,16 @@ const Morals = ({ user, setUser }) => {
   for (let s of scrips) {
     scripObj[s.quote] = <span data-toggle="tooltip" className="testHover" href="#" title={s.scripture}>{s.quote}</span>
   }
-
   let moralArr = []
   if (user.morals) {
     moralArr = user.morals.map((item, index) => <li key={index}>{item}<button id={index} className="moralInvBtn" onClick={handleDelete}>Delete</button></li>)
   }
 
-
-
     return (
 
       <>
           <h3>Moral Inventory</h3>
-          <p className="white"><img className="cloud tall" src="../images/cross.jpeg" alt="church" />I firmly believe that all believers
-            should check themselves regularly against their own personal
-            Moral Inventory. As the author of this site, I am sharing mine (in no order of importance) as a sample of what I do
-        monthly. I speak to myself in the affirmative, reminding myself who I am in Christ. I am not perfect, as God already knows, and where I fall short, I ask God for help to improve and grow in my spiritual walk. I invite you to  develop your own Moral Inventory below and check yourself against it regularly and trust God to move you forward. Bear in mind that yours, just like mine can and should change as the Holy Spirit guides your thoughts and actions.</p>
+          <p className=""><img className="cloud tall" src="../images/cross.jpeg" alt="church" />I firmly believe that all believers should check themselves regularly against their own personal Moral Inventory. As the author of this site, I am sharing mine (in no order of importance) as a sample of what I do monthly. I speak to myself in the affirmative, reminding myself who I am in Christ. I am not perfect, as God already knows, and where I fall short, I ask God for help to improve and grow in my spiritual walk. I invite you to  develop your own Moral Inventory below and check yourself against it regularly and trust God to move you forward. Bear in mind that yours, just like mine can and should change as the Holy Spirit guides your thoughts and actions.</p>
           <Accordion>
             <Accordion.Toggle eventKey="0" >
               <p className="pink">My List<br /><span className="pix10 yellow">open/close</span></p>
@@ -82,7 +68,7 @@ const Morals = ({ user, setUser }) => {
             <Accordion.Collapse eventKey="0">
               <div>
                 <br />
-                <ol className="white">
+                <ol className="">
                   <li> Because Jesus said to Love one another ({scripObj['1 John 19:34-35']}), I do not persecute others.</li>
                   <li> Because Jesus said I am salt and light and to make disciples ({scripObj['Matthew 5:13-16']}, {scripObj['Matthew 28:19']}), I share my faith and demonstrate goodness and kindness.</li>
                   <li> Because God is slow to anger ({scripObj['Exodus 34:6']}), I am patient in all things when necessary.</li>
@@ -100,13 +86,8 @@ const Morals = ({ user, setUser }) => {
                   <li>Because the Holy Spirit guides me ({scripObj['Galatians 5:25']}), I demonstrate it fruits: Love/Peace/Joy/Kindness/Goodness/Gentleness/Faith/Paitence/Self-Control + Humility (added just for me by me) </li>
                   <li> Because Jesus is ALIVE in me ({scripObj['Galatians 2:20']}), I do not have a signature sin</li>
                 </ol>
-                <p className="white">One additional thought is that you also need to consider the "gray" areas where scripture does not
-                  specify a "Thou shall ... or Thou shall not ...". Things of this nature might include dancing, responsible drinking,
-                  consuming certain foods, attending LGBTQ+ events, etc. I have wrestled with this concept because this is where most
-                of us live on a daily basis as we face similar choices at home, work, and with family. {scripObj['1 Corinthians 6:12']} addresses this perfectly because often times there are not "yes or no - right or wrong" answers as each situation is its own entity so therefore I need to consider what is beneficial. So now, I ask myself these questions and it
-                  really helps me to simplify my position and be at peace with my choices and decisions. Feel free to use my process
-                or develop your own. The important thing is that you become intentional about your choices rather than involve yourself in things for the wrong reasons.</p>
-                <ol className="white">Questions for my gray areas:
+                <p className="">One additional thought is that you also need to consider the "gray" areas where scripture does not specify a "Thou shall ... or Thou shall not ...". Things of this nature might include dancing, responsible drinking, consuming certain foods, attending LGBTQ+ events, etc. I have wrestled with this concept because this is where most of us live on a daily basis as we face similar choices at home, work, and with family. {scripObj['1 Corinthians 6:12']} addresses this perfectly because often times there are not "yes or no - right or wrong" answers as each situation is its own entity so therefore I need to consider what is beneficial. So now, I ask myself these questions and it really helps me to simplify my position and be at peace with my choices and decisions. Feel free to use my process or develop your own. The important thing is that you become intentional about your choices rather than involve yourself in things for the wrong reasons.</p>
+                <ol className="">Questions for my gray areas:
               <li>Greg, Do you have doubts about doing this activity?</li>
                   <li>Greg, Can you thank God for the experience of what you just did?</li>
                   <li>Greg, Will you be embarrassed if you are being evaluated for making this choice?</li>
@@ -116,7 +97,7 @@ const Morals = ({ user, setUser }) => {
             </Accordion.Collapse>
           </Accordion>
           <br />
-          <p className="white">Often times my environment, timing, participants help guide my choices also. For example, I would not
+          <p className="">Often times my environment, timing, participants help guide my choices also. For example, I would not
             have a drink with a recovering alcoholic. I would not dance loosely in ways that might tempt others but would
             absolutely enjoy an appropriate dance with my wife. Make sense ??? Continue to pray when facing similar choices and
         let God, through the Holy Spirit, Guide your thinking.</p>
