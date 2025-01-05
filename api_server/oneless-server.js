@@ -63,7 +63,6 @@ const generateRefreshToken = (user) => {
     return refreshToken;
 };
 // user login endpoints located here for testing only
-// will be moved to routes.js later
 // Login route
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
