@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 // filepath: /path/to/your/project/src/components/Login/Login.jsx
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import axios from 'axios';
 
 const Login = ({setUser}) => {
@@ -8,12 +8,17 @@ const Login = ({setUser}) => {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
 
+  useEffect(() => {
+    console.log('Login component mounted');
+  }, []);
+
   const handleLogin = async () => {
     console.log('attempting login');
     console.log('username:', username);
     try {
       const response = await axios.post('http://localhost:4000/login', { username, password }, { withCredentials: true });
       localStorage.setItem('accessToken', response.data.accessToken);
+      localStorage.setItem('user', JSON.stringify(response.data.user)); // Store user information in local storage
       setUser(response.data.user);
       setMessage(`Login successful. Welcome Mr. ${response.data.user.lastName}`);
     } catch (error) {

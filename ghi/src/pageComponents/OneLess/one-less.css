@@ -6,7 +6,7 @@
     background-color: #fff;
 
 }
-.one-less p {
+.one-less p, .one-less li{
   text-align: left;
   font-size: 1.25rem !important;
 }

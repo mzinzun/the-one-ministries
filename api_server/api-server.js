@@ -39,32 +39,6 @@ const limiter = rateLimit({
 
 app.use(limiter);
 
-// Mock user data
-const users = [
-  {
-    id: 1,
-    username: 'user1',
-    password: bcrypt.hashSync('password1', 8),
-  },
-  {
-    id: 2,
-    firstName: "Greg",
-    lastName: "Marshall",
-    email: "gm@gm.com",
-    username: "gm@gm.org",
-    // password: bcrypt.hashSync('password2', 8),
-    password: "232323"
-  },
-  {
-    id: 3,
-    firstName: "Michael",
-    lastName: "Zinzun",
-    email: "mzinzun@zincomws.com",
-
-    password: "12345"
-  }
-];
-
 let refreshTokens = [];
 // Generate Access Token
 const generateAccessToken = (user) => {
@@ -113,6 +87,7 @@ app.post('/login', async (req, res) => {
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
+      history: user.history,
       // Add other fields as needed
     }
   });

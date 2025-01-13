@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import 'react-tooltip/dist/react-tooltip.css'
@@ -5,17 +6,17 @@ import { Tooltip } from 'react-tooltip';
 import cross from './one-less-assets/cross.jpeg'; // Import the image using ES6 import
 
 // This component is the Salvation page content
-const Salvation = () => {
+const Salvation = ({user, scrips}) => {
 
-	const [scrips, setScrips] = useState([]);
-	const getData = async () => {
-		// Get Scriptures from database and Put scriptures on the page //
-		const resp = await fetch('http://localhost:4000/get_scriptures')
-		const data = await resp.json()
-		setScrips(data)
-	}
+	// const [scrips, setScrips] = useState([]);
+	// const getData = async () => {
+	// 	// Get Scriptures from database and Put scriptures on the page //
+	// 	const resp = await fetch('http://localhost:4000/get_scriptures')
+	// 	const data = await resp.json()
+	// 	setScrips(data)
+	// }
 	useEffect(() => {
-		getData()
+		// getData()
 	}, [])
 	// build object of scriptures to add tooltips to the quotes
 	const scripObj = {}

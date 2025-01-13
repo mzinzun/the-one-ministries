@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Landing from './pageComponents/Landing';
 import OneLess from './pageComponents/OneLess';
 import Header from './components/Header';
@@ -11,6 +11,14 @@ import Logout from './components/Logout';
 
 function App() {
   const [user, setUser] = useState({});
+  useEffect(() => {
+      // Retrieve user information from local storage on component mount
+      const storedUser = localStorage.getItem('user');
+      if (storedUser) {
+        setUser(JSON.parse(storedUser));
+      }
+    }, [setUser]);
+
   return (
     <Router>
       <div className="app container-fluid justify-content-start">
@@ -18,7 +26,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Landing user={user}/>} />
           <Route exact path="/about" element={<About />} />
-          <Route exact path="/one-less" element={<OneLess />} />
+          <Route exact path="/one-less" element={<OneLess user={user} setUser={setUser}/>} />
           <Route exact path="/news-stories" element={<NewsStories />} />
           <Route exact path="/login" element={<Login user={user} setUser={setUser} />} />
           <Route exact path="/logout" element={<Logout setUser={setUser} />} />

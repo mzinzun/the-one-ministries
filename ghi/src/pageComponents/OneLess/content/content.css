@@ -25,3 +25,96 @@ ul {
     padding: 0;
     text-align: left;
 }
+/* Morlas */
+.morals-content {
+    padding: 50px 0;
+}
+.inventory {
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 10px;
+    /* margin: 0 auto;
+    max-width: 1200px; */
+}
+.inventory>section {
+    flex: 1 1 0;
+    border: 2px solid black;
+    padding: 0 10px;
+}
+/* Confess Sins */
+.confess-content {
+    border: 2px solid black;
+    padding: 0;
+    margin: 0;
+    /* height: 250px; */
+    /* display: flex; */
+}
+.confessAnimator {
+    position: relative;
+    min-height: 35rem;
+    display: flex;
+    border: 2px solid black;
+}
+.sinSlider, .sinCross {
+    flex: 1 1 0;
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sinSlider>div, .sinCross>div {
+    flex: 1 1 0;
+    border: 2px solid red;
+    overflow: auto;
+}
+.confessAnimator img {
+    height: 100%;
+    width:100%;
+}
+#crossStart {
+    position: absolute;
+    top: 0;
+    left: 8.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    animation: moveAcross 5s linear infinite;
+}
+
+#crossEnd {
+    position: absolute;
+    top: 0;
+    left: 38rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+
+}
+@keyframes moveAcross {
+    from {
+      left: 8.5;
+    }
+    to {
+      left: 38rem;
+    }
+  }
+
+
+  #moveCross {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    /* animation: moveAcross 5s linear infinite; */
+  }

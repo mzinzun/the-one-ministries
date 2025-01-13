@@ -1,4 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useState, useEffect } from 'react';
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip';
+import crossStart from './one-less-assets/crossStart.png'
+import crossEnd from './one-less-assets/crossEnd.png'
+import finish from './one-less-assets/cross10.png'
 
 const ConfessSins = () => {
 
@@ -35,45 +41,59 @@ const ConfessSins = () => {
 
 
   return (
-    <div>
+    <div className="confess-content">
+      <div className='border content-header'>
+        <h3>Confess my Sins</h3>
+      </div>
 
-      <h3>Confess my Sins</h3>
-      <br />
-      <p className="confessSin">Sin is real and something everyone faces on a "many times a day" basis. Accepting that we live
-        in a fallen world and that we all sin and fall short of God's glory ({scripObj['Romans 3:23']}) it is important that we <u className="define point vocab" data-toggle="tooltip" data-html="true" title="Confess - CONFESS YOUR SINS -
+      <div className='border confessSin'>
+        <p className="confessSin">Sin is real and something everyone faces on a "many times a day" basis. Accepting that we live
+          in a fallen world and that we all sin and fall short of God's glory ({scripObj['Romans 3:23']}) it is important that we <u className="define point vocab" data-toggle="tooltip" data-html="true" title="Confess - CONFESS YOUR SINS -
    1. To freely agree or acknowledge that you violated God's law by your willful act.
    2. Display real sorrow over your sin.
    3. Ask God to cover your sin with the blood of Jesus and forgive you.
    4. Faithfully believe that God has heard you and will restore you.">Confess</u> our sins, repent our sins, and
-        transfer or move past our sins. We do this willingly and voluntarily because as {scripObj['Romans 8:1-2']} says, there is no
-        condemnation for those who are in Jesus Christ and that God will never be angry with us again ({scripObj['Isaiah 54:9-10']}). Try this animated exercise to help you visualize the process from
-        confession to forgiveness and
-        then walk forward under <u className="define point vocab" data-toggle="tooltip" data-html="true" title="Grace - 1. God's unmerited favor. 2. Receiving a gift from God that you do not deserve. For Example see Romans 11:5-6.">grace</u>.
-      </p>
-      <p className="confessSin">This is the animaition only. It is an opportunity for you to see and feel in action what you are
-        doing through prayer. Watch as you send your repented sin to the cross how it darkens your blanket and then is
-        washed by the blood of Jesus at the cross and returns clean and pure to you representing your status as forgiven and righteous to match your always righteous state.
-        Repeat this activity as often as you need or like but remembering that you need to pray sincerely to God for true
-        forgiveness of your sins.</p>
-      <br /><br />
-      <div className="confession">
-        <div className="blanket">
-          <p className={`${slider.slider ? "slider" : "nameSin"}`}>I confess<br />
-            <label htmlFor="sin"></label>
-            <input type="text" className="form-control wide" id="sin" placeholder="Your Sin" required></input>
-          </p>
-          <button className="button" id="confessBtn" onClick={handleCross}>Send to the Cross</button>
-        </div>
-        <div className="cross">
-          <p className="confessPlace1"></p>
-          <p className="confessPlace2"></p>
-          <p className="confessPlace3"></p>
-          <p className="confessPlace4"></p>
-          <div id="sinResponse" className={slider.sin ? "" : "hidden"}>
-            <p>God is Faithful and just to Forgive {slider.sin}.</p><p className="resp2"><i className="">JESUS</i> Nailed your <i className="resp3">SINS</i> to the <i className="">CROSS</i> and <i className="resp4">WASHED</i> them with his <i className="">BLOOD</i>.</p><p className=" resp5 white">IT IS FINISHED!!</p><p>Col 2:13-15</p>
-          </div>
-        </div>
+          transfer or move past our sins. We do this willingly and voluntarily because as {scripObj['Romans 8:1-2']} says, there is no
+          condemnation for those who are in Jesus Christ and that God will never be angry with us again ({scripObj['Isaiah 54:9-10']}). Try this animated exercise to help you visualize the process from
+          confession to forgiveness and
+          then walk forward under <u className="define point vocab" data-toggle="tooltip" data-html="true" title="Grace - 1. God's unmerited favor. 2. Receiving a gift from God that you do not deserve. For Example see Romans 11:5-6.">grace</u>.
+        </p>
+        <p className="confessSin">This is the animaition only. It is an opportunity for you to see and feel in action what you are
+          doing through prayer. Watch as you send your repented sin to the cross how it darkens your blanket and then is
+          washed by the blood of Jesus at the cross and returns clean and pure to you representing your status as forgiven and righteous to match your always righteous state.
+          Repeat this activity as often as you need or like but remembering that you need to pray sincerely to God for true
+          forgiveness of your sins.</p>
       </div>
+      <div className="confessAnimator">
+        <section className="sinCross">
+        <div className='' id='crossStart'>
+            <img src={crossStart}/>
+          </div>
+          <div></div>
+
+          <div>
+            <h5>Sin is real and something everyone faces on a "many times a day" basis. Accepting that we live in a fallen world and that we all sin and fall short of God's glory (Romans 3:23) it is important that we Confess our sins, repent our sins, and transfer or move past our sins. We do this willingly and voluntarily because as Romans 8:1-2 says, there is no condemnation for those who are in Jesus Christ and that God will never be angry with us again (Isaiah 54:9-10). Try this animated exercise to help you visualize the process from confession to forgiveness and then walk forward under grace.</h5>
+          </div>
+        </section>
+        <section className="sinCross">
+        <div className='crossEnd' id='crossEnd'><img src={finish} /></div>
+          <div></div>
+          <div><h5>enter sin</h5></div>
+        </section>
+      </div>
+      <Tooltip className='' id="tooltip" place="right"
+        style={{
+          fontSize: '1.25rem',
+          maxWidth: '30rem',
+          // minWidth: '200px',
+          // maxWidth: '400px',
+          whiteSpace: 'pre-line',
+          color: 'red',
+          backgroundColor: '#333',
+          borderRadius: '8px',
+          padding: '10px',
+          textAlign: 'left',
+        }} />
     </div>
   )
 

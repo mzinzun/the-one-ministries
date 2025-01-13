@@ -1,29 +1,30 @@
 const User = require("../models/User");
-const createJWT = require('../helper/createJWT');
+// const createJWT = require('../helper/createJWT');
 
 module.exports = {
     // CRUD to handle user interface //
-    login: (req, res) => {
-        User.findOne({ email: req.body.email })
-            .then(user => {
-                if (user && user._id) {
-                    user.comparePassword(req.body.password, async (err, isMatch) => {
-                        if (err) {
-                            console.log(err)
-                            res.status(403).json({ success: false, error: err })
-                        }
-                        if (isMatch) res.json({ user: user, token: await createJWT(user) })
-                        else res.json({ success: false, message: `Incorrect Password` })
-                    });
-                } else {
-                    res.json({ success: false, message: "No user Found" })
-                }
-            })
-            .catch(e => {
-                console.log(e)
-                res.json({ success: false, message: "problem! problem problem!" })
-            })
-    },
+    // login function modified
+    // login: (req, res) => {
+    //     User.findOne({ email: req.body.email })
+    //         .then(user => {
+    //             if (user && user._id) {
+    //                 user.comparePassword(req.body.password, async (err, isMatch) => {
+    //                     if (err) {
+    //                         console.log(err)
+    //                         res.status(403).json({ success: false, error: err })
+    //                     }
+    //                     if (isMatch) res.json({ user: user, token: await createJWT(user) })
+    //                     else res.json({ success: false, message: `Incorrect Password` })
+    //                 });
+    //             } else {
+    //                 res.json({ success: false, message: "No user Found" })
+    //             }
+    //         })
+    //         .catch(e => {
+    //             console.log(e)
+    //             res.json({ success: false, message: "problem! problem problem!" })
+    //         })
+    // },
     getUser: (req, res) => {
         User.findById(req.params.id)
             .then(user => {
@@ -43,7 +44,7 @@ module.exports = {
                     error: 'You must provide a user credentials',
                 });
             }
-            // Check and see if user already exists 
+            // Check and see if user already exists
             const user = await User.findOne({ email: email });
             if (user) {
                 return res.status(400).json({
@@ -85,16 +86,24 @@ module.exports = {
                 res.json({ success: false, error: e })
             })
     },
-    updateUser: (req, res) => {
-        const { id } = req.params
-        User.findByIdAndUpdate(id, req.body, { new: true })
-            .then(resp => {
-                res.json(resp)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    },
+    updateUser: async (req, res) => {
+    const userId = req.params.id; // Assuming the user ID is passed as a URL parameter
+    const updateData = req.body; // Assuming the update data is passed in the request body
+    console.log('updateData:', updateData);
+    try {
+      const updatedUser = await User.findByIdAndUpdate(userId, updateData, { new: true, runValidators: true });
+      if (!updatedUser) {
+        console.log('User not found');
+        return res.status(404).send('User not found');
+      }
+      console.log('User successfully updated:', updatedUser);
+      res.status(200).send(updatedUser);
+    } catch (error) {
+      console.error('Error updating user:', error);
+      res.status(500).send('Internal server error');
+    }
+  },
+
     deleteUser: (req, res) => {
         const { id } = req.params
         User.findByIdAndDelete(id)

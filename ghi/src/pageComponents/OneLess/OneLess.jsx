@@ -1,12 +1,13 @@
+/* eslint-disable react/prop-types */
 
 import { useEffect, useState, useRef } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import './one-less.css';
 import './content/content.css'
 import MeetGod from './content/MeetGod';
 import Salvation from './content/Salvation';
 import Living from './content/Living';
-// import Morals from './content/Morals';
+import Morals from './content/Morals';
 import ConfessSins from './content/ConfessSins';
 import EternallySecure from './content/EternallySecure';
 import WalkWord from './content/WalkWord';
@@ -14,17 +15,25 @@ import Encourage from './content/Encourage';
 import Introduction from './content/Introduction';
 // import Oneliners from './content/Oneliners';
 
-const OneLess = () => {
+const OneLess = ({user, setUser}) => {
   // const [data, setData] = useState(null);
   // const [loading, setLoading] = useState(true);
   // const [error, setError] = useState(null);
+  const [scrips, setScrips] = useState([]);
   const [lesson, setLesson] = useState('Introduction');
   const buttonsRef = useRef([]);
   useEffect(() => {
     console.log('OneLess component mounted');
+    getData();
 
   }, [lesson]);
-
+  const getData = async () => {
+    const response = await axios.get('http://localhost:4000/get_scriptures');
+    // const resp = await fetch('http://localhost:4000/get_scriptures')
+    const data = response.data
+    setScrips(data)
+    console.log('data is: ', data)
+  }
   function handleClick(e) {
     // Set the lesson state to the clicked button's text content
     setLesson(e.target.textContent);
@@ -44,11 +53,11 @@ const OneLess = () => {
       case 'Meet God':
         return <MeetGod />;
       case 'Salvation':
-        return <Salvation />;
+        return <Salvation user={user} scrips={scrips}/>;
       case 'Living':
         return <Living />;
       case 'Morals':
-        return <p>Will fix jquery in Morals.jsx</p>;
+        return <Morals user={user} scrips={scrips}/>;
       case 'Confess My Sins':
         return <ConfessSins />;
       case 'Eternally Secure':
