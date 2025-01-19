@@ -3,48 +3,53 @@
 import { useEffect, useState } from "react";
 // import { Accordion } from "react-bootstrap";
 import Accordion from 'react-bootstrap/Accordion';
+import Button from 'react-bootstrap/Button';
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip';
 import axios from 'axios';
 import cross from './one-less-assets/cross.jpeg'; // Import the image using ES6 import
+// import './Morals.css'; // Ensure you have the necessary CSS for the modal
 
-const Morals = ({ user, scrips }) => {
+const Morals = ({ user, setUser, scrips }) => {
     const [moralItem, setMoralItem] = useState('');
-    const [inventory, setInventory] = useState(user.morals?user.morals:[]);
-    // const moralArr = user.morals ? user.morals.map((item, index) => <li key={index}>{item}<button id={index} className="moralInvBtn" onClick={handleDelete}>Delete</button></li>) : []
+    const [inventory, setInventory] = useState(user ? user.morals : []);
+    const [showModal, setShowModal] = useState(false); // State variable for modal visibility
+
     useEffect(() => {
         console.log('Morals component mounted');
-        user ? console.log('user logged in: ', user.email) : console.log('user not logged in: ');
-        // user.morals&&setInventory(user.morals);
-        // console.dir(user);
-        // console.log('scrips: ', scrips);
+        console.log(inventory)
+        console.log(user)
     }, [user, inventory]);
-    const handleAddToList = async e => {
+
+    const handleAddToList = e => {
         e.preventDefault();
-        setInventory([...inventory, moralItem]);
+        const addInventory = inventory ? [...inventory, moralItem] : [moralItem];
+        setInventory([...addInventory]);
         setMoralItem('');
-        // let newItem = $("#list").val();
-        // if (newItem === "") {
-        //   return true
-        // }
-        // let obj = { moral: newItem }
-        // const resp = await fetch(`http://localhost:4000/add_moral/${user._id}`,
-        //   {
-        //     method: 'PUT',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(obj)
-        //   })
-        // const data = await resp.json()
-        // setUser(data)
-        // $(":input").val("");
     }
-    const handleSubmit = async e => {
+
+    const handleSaveList = async e => {
         e.preventDefault();
-        const newInventory = {"morals": inventory};
-        const userId = user.id;
-        axios.put(`http://localhost:4000/update_user/${userId}`, newInventory)
-        console.log('new user object to update:');
-        console.dir(newInventory);
+        try {
+            const userId = user.id; // Get the user ID from the user object
+            console.log('User ID:', userId); // Log the user ID to verify it's being retrieved
+            const newInventory = { "morals": inventory };
+            const token = localStorage.getItem('accessToken'); // Ensure the token is stored in localStorage
+            console.log('Token:', token); // Log the token to verify it's being retrieved
+            const response = await axios.put(`http://localhost:4000/update_user/${userId}`, newInventory, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` // Include the access token
+                }
+            });
+            console.log('new user object to update:', response.data);
+            setShowModal(true); // Show the modal after successful save
+            setUser(response.data); // Update the user state with the response data
+            localStorage.setItem('user', JSON.stringify(response.data)); // Update the user object in localStorage
+
+        } catch (error) {
+            console.error('Error updating user:', error);
+        }
     }
 
     const handleDelete = async (e) => {
@@ -58,10 +63,16 @@ const Morals = ({ user, scrips }) => {
         // const data = await resp.json()
         // setUser(data)
     }
+
+    const closeModal = () => {
+        setShowModal(false); // Hide the modal
+    };
+
     const scripObj = {}
     for (let s of scrips) {
         scripObj[s.quote] = <span data-tooltip-id="tooltip" className="testHover" data-tooltip-content={s.scripture}>{s.quote}</span>
     }
+
     return (
         <div className="morals-content">
             <div className='border content-header'>
@@ -71,7 +82,6 @@ const Morals = ({ user, scrips }) => {
                 <img className="cloud tall" src={cross} alt="church" /><p className="">I firmly believe that all believers should check themselves regularly against their own personal Moral Inventory. As the author of this site, I am sharing mine (in no order of importance) as a sample of what I do monthly. I speak to myself in the affirmative, reminding myself who I am in Christ. I am not perfect, as God already knows, and where I fall short, I ask God for help to improve and grow in my spiritual walk. I invite you to  develop your own Moral Inventory below and check yourself against it regularly and trust God to move you forward. Bear in mind that yours, just like mine can and should change as the Holy Spirit guides your thoughts and actions.</p>
             </div>
             <div>
-
                 <Accordion defaultActiveKey={null}>
                     <Accordion.Item eventKey="0">
                         <Accordion.Header>Click to see My List</Accordion.Header>
@@ -111,34 +121,33 @@ const Morals = ({ user, scrips }) => {
                 <small className=""><strong><b>** NOTE:</b><em> I suggest that you involve yourself with the things on this page privately between you and God as these are personal to you specifically. It's certainly fine to share as I have shared mine with you as an example or for accountability with a trusted companion but you need to be free to be totally honest and sincere with your thoughts, feelings and inputs.</em></strong></small>
             </div>
             <div className="inventory">
-
-                <section><form className="form-group" >
-                    <label className="pink pix20" htmlFor='list'>MORAL INVENTORY</label>
-                    <input className="form-control param newUserSign"
-                        id="list"
-                        placeholder="Your List Here"
-                        value={moralItem}
-                        onChange={e => setMoralItem(e.target.value)}
-                        required></input>
-                    <button type='button'
-                        className='button w-25'
-                        id='submitBtn'
-                        onClick={handleAddToList}
-                    >Add to list</button>
-                </form>
+                <section>
+                    <form className="form-group">
+                        <label className="pink pix20" htmlFor='list'>MORAL INVENTORY</label>
+                        <input className="form-control param newUserSign"
+                            id="list"
+                            placeholder="Enter a moral item"
+                            value={moralItem}
+                            onChange={e => setMoralItem(e.target.value)}
+                            required></input>
+                        <button type='button'
+                            className='button w-25 text-center m-2'
+                            id='submitBtn'
+                            onClick={handleAddToList}
+                        >Add to list</button>
+                    </form>
                 </section>
                 <section>
-                    <h5><span className="yellow">{user.firstName}'s</span>  Inventory List</h5>
+                    <h5><span className="yellow">{user && user.firstName}'s</span> Inventory List</h5>
                     <ol className="">
-                        {inventory&&inventory.map((item, index) => <li key={index}>{item}<button id={index} className="w-25" onClick={handleDelete}>Delete</button></li>)}
-
-
-                        {/* {user.morals && user.morals.map((item, index) => <li key={index}>{item}<button id={index} className="" onClick={handleDelete}>Delete</button></li>)} */}
-
-
-                        </ol>
-                        <button id='saveList' className='button' onClick={handleSubmit}>Save List</button>
-                        </section>
+                        {inventory && inventory.map((item, index) => <li
+                        key={index}
+                        className="row border-bottom border-dark p-2">
+                            <p className="col-9">{item}</p>
+                            <div className="col-2 p-0 text-center" ><Button id={index} onClick={handleDelete}>Delete</Button></div></li>)}
+                    </ol>
+                    <button id='saveList' className='button w-25 m-2 text-center' onClick={handleSaveList}>Save List</button>
+                </section>
             </div>
             <Tooltip className='' id="tooltip" place="right"
                 style={{
@@ -153,8 +162,16 @@ const Morals = ({ user, scrips }) => {
                     padding: '10px',
                     textAlign: 'left',
                 }} />
+            {/* Modal */}
+            {showModal && (
+                <div className="modal">
+                    <div className="modal-content">
+                        <span className="close" onClick={closeModal}>&times;</span>
+                        <p>List has been saved successfully!</p>
+                    </div>
+                </div>
+            )}
         </div>
-
     )
 }
 

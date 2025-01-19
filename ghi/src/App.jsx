@@ -10,7 +10,7 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 
 function App() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   useEffect(() => {
       // Retrieve user information from local storage on component mount
       const storedUser = localStorage.getItem('user');

@@ -88,7 +88,7 @@ app.post('/login', async (req, res) => {
       lastName: user.lastName,
       email: user.email,
       history: user.history,
-      // Add other fields as needed
+      morals: user.morals
     }
   });
 });

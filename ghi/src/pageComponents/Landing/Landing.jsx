@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import './Landing.css'
 import scriptArray from './scriptArray.json';
 import Welcome from '../../components/Welcome/'
 import Footer from '../../components/Footer'
 import { Link } from 'react-router';
-function Landing() {
+function Landing({user}) {
     const [scripture, setScripture] = useState(0);
     useEffect(() => {
         console.log("scripts", scriptArray)
@@ -16,6 +17,7 @@ function Landing() {
     return (
         <>
             <main className="landing">
+            <div>{user&&<h3>Welcome {user.firstName}</h3>}</div>
                 <section className='landing-section'>
                     <div className='news-thoughts-div'>
                         <section className='landing-news border'>

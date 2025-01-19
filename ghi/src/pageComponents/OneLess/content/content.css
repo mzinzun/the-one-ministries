@@ -2,15 +2,18 @@
     /* background-color: blueviolet; */
     padding: 1rem 0;
 }
+
 /* MeetGod */
 /* Salvation */
 .salvation-content p {
     text-align: left;
 }
+
 .sec2 {
     padding: 50px 0 !important;
 }
-.sec2 div{
+
+.sec2 div {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -19,16 +22,19 @@
     /* margin: 0 auto;
     max-width: 1200px; */
 }
+
 /* Living */
 ul {
     list-style-type: disc;
     padding: 0;
     text-align: left;
 }
+
 /* Morlas */
 .morals-content {
     padding: 50px 0;
 }
+
 .inventory {
     border: 2px solid black;
     display: flex;
@@ -38,11 +44,53 @@ ul {
     /* margin: 0 auto;
     max-width: 1200px; */
 }
+
 .inventory>section {
     flex: 1 1 0;
     border: 2px solid black;
     padding: 0 10px;
 }
+
+/* Modal styles */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 /* Confess Sins */
 .confess-content {
     border: 2px solid black;
@@ -51,13 +99,14 @@ ul {
     /* height: 250px; */
     /* display: flex; */
 }
+
 .confessAnimator {
     position: relative;
     min-height: 35rem;
     display: flex;
     border: 2px solid black;
 }
-.sinSlider, .sinCross {
+.sinCross {
     flex: 1 1 0;
     border: 2px solid red;
     display: flex;
@@ -65,32 +114,52 @@ ul {
     justify-content: center;
     align-items: center;
 }
-.sinSlider>div, .sinCross>div {
+
+.sinCross>div {
     flex: 1 1 0;
     border: 2px solid red;
     overflow: auto;
 }
+.sinCross img {
+    z-index: 10;
+}
+.sins {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(2, 2, 2, 0.397);
+    z-index: 100;
+}
 .confessAnimator img {
     height: 100%;
-    width:100%;
+    width: 100%;
 }
+
 #crossStart {
     position: absolute;
-    top: 0;
-    left: 8.5rem;
+    top: 2rem;
+    left: 25%;
+    transform: translate(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     width: 200px;
     height: 200px;
-    animation: moveAcross 5s linear infinite;
+    background-color: black;
+    transition: all 5s linear;
+}
+
+.cleanseSins {
+    animation: moveAcross 5s linear 1;
+    background-color: red !important;
 }
 
 #crossEnd {
     position: absolute;
-    top: 0;
-    left: 38rem;
+    top: 2rem;
+    left: 75%;
+    transform: translate(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,17 +168,19 @@ ul {
     height: 200px;
 
 }
+
 @keyframes moveAcross {
     from {
-      left: 8.5;
+        left: 25%;
     }
+
     to {
-      left: 38rem;
+        left: 75%;
     }
-  }
+}
 
 
-  #moveCross {
+#moveCross {
     position: absolute;
     top: 50%;
     left: 0;
@@ -117,4 +188,4 @@ ul {
     height: 100px;
     background-color: red;
     /* animation: moveAcross 5s linear infinite; */
-  }
+}

@@ -57,7 +57,7 @@ const OneLess = ({user, setUser}) => {
       case 'Living':
         return <Living />;
       case 'Morals':
-        return <Morals user={user} scrips={scrips}/>;
+        return <Morals user={user} setUser={setUser} scrips={scrips}/>;
       case 'Confess My Sins':
         return <ConfessSins />;
       case 'Eternally Secure':

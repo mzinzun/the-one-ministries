@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { Button } from 'react-bootstrap';
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip';
 import crossStart from './one-less-assets/crossStart.png'
@@ -10,9 +11,13 @@ const ConfessSins = () => {
 
   // Allow scriptures to  display 'onHover'
   const [scrips, setScrips] = useState([]);
+  const [sin, setSin] = useState('');
+  const [sinList, setSinList] = useState(["Lust"]);
+  const crossStartRef = useRef(null); // Create a ref for the element with id='crossStart'
+
 
   // Initialize state prior to animantion
-  const [slider, setSlider] = useState({ slider: false, sin: "" })
+//   const [slider, setSlider] = useState({ slider: false, sin: "" })
 
   const getData = async () => {
     const resp = await fetch('http://localhost:4000/get_scriptures')
@@ -27,18 +32,16 @@ const ConfessSins = () => {
   for (let s of scrips) {
     scripObj[s.quote] = <span data-toggle="tooltip" className="testHover" href="#" title={s.scripture}>{s.quote}</span>
   }
-
-  const handleCross = (e) => {
-    e.preventDefault()
-    const sin = document.getElementById("sin").value
-    setSlider({ slider: true, sin: sin })
-    setTimeout(() => {
-      setSlider({ slider: false, sin: "" })
-      document.getElementById("sin").value = ""
-    }, 2800)
+  const addSin = () => {
+	const updateList = sinList?[...sinList, sin]:[sin];
+	sinList?setSinList(updateList):setSinList([sin]);
+	setSin('');
   }
-
-
+  const cleanseSins = () => {
+	if (crossStartRef.current) {
+      crossStartRef.current.classList.add('cleanseSins'); // Add the class to the element
+    }
+  }
 
   return (
     <div className="confess-content">
@@ -47,12 +50,11 @@ const ConfessSins = () => {
       </div>
 
       <div className='border confessSin'>
-        <p className="confessSin">Sin is real and something everyone faces on a "many times a day" basis. Accepting that we live
-          in a fallen world and that we all sin and fall short of God's glory ({scripObj['Romans 3:23']}) it is important that we <u className="define point vocab" data-toggle="tooltip" data-html="true" title="Confess - CONFESS YOUR SINS -
-   1. To freely agree or acknowledge that you violated God's law by your willful act.
-   2. Display real sorrow over your sin.
-   3. Ask God to cover your sin with the blood of Jesus and forgive you.
-   4. Faithfully believe that God has heard you and will restore you.">Confess</u> our sins, repent our sins, and
+        <p className="confessSin">Sin is real and something everyone faces on a "many times a day" basis. Accepting that we live in a fallen world and that we all sin and fall short of God's glory ({scripObj['Romans 3:23']}) it is important that we <u className="define point vocab" data-toggle="tooltip" data-html="true" title="Confess - CONFESS YOUR SINS -
+          1. To freely agree or acknowledge that you violated God's law by your willful act.
+          2. Display real sorrow over your sin.
+          3. Ask God to cover your sin with the blood of Jesus and forgive you.
+          4. Faithfully believe that God has heard you and will restore you.">Confess</u> our sins, repent our sins, and
           transfer or move past our sins. We do this willingly and voluntarily because as {scripObj['Romans 8:1-2']} says, there is no
           condemnation for those who are in Jesus Christ and that God will never be angry with us again ({scripObj['Isaiah 54:9-10']}). Try this animated exercise to help you visualize the process from
           confession to forgiveness and
@@ -66,17 +68,29 @@ const ConfessSins = () => {
       </div>
       <div className="confessAnimator">
         <section className="sinCross">
-        <div className='' id='crossStart'>
-            <img src={crossStart}/>
+          <div className='' ref={crossStartRef} id='crossStart'>
+				<div className='sins text-white p-4'>
+					<h6 className=''>{sinList&&sinList.map((item,idx)=><p className='text-center'key={idx}>{item}</p>)}</h6>
+				</div>
+            <img src={crossStart} />
           </div>
           <div></div>
 
           <div>
-            <h5>Sin is real and something everyone faces on a "many times a day" basis. Accepting that we live in a fallen world and that we all sin and fall short of God's glory (Romans 3:23) it is important that we Confess our sins, repent our sins, and transfer or move past our sins. We do this willingly and voluntarily because as Romans 8:1-2 says, there is no condemnation for those who are in Jesus Christ and that God will never be angry with us again (Isaiah 54:9-10). Try this animated exercise to help you visualize the process from confession to forgiveness and then walk forward under grace.</h5>
+            <h5>Enter a Sin</h5>
+				<input
+            type="text"
+            className="form-control"
+            placeholder="Enter your sin"
+            value={sin}
+            onChange={(e)=>setSin(e.target.value)}
+          />
+			 <Button onClick={addSin}>Add to Cross</Button>
+			 <Button onClick={cleanseSins}>Cleanse Sins</Button>
           </div>
         </section>
         <section className="sinCross">
-        <div className='crossEnd' id='crossEnd'><img src={finish} /></div>
+          <div className='crossEnd' id='crossEnd'><img src={finish} /></div>
           <div></div>
           <div><h5>enter sin</h5></div>
         </section>

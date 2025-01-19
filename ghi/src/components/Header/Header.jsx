@@ -1,9 +1,14 @@
+/* eslint-disable react/prop-types */
 import './Header.css'
 import Menu from '../Menu'
 import title from './TheOneMinistries.gif'; // Import the image using ES6 import
+import { useEffect } from 'react';
 
 
 const Header = ({user}) => {
+    useEffect(() => {
+        console.log('Header user:', user)
+    },[user]);
     return (
         <header className="p-4 app-header">
             <div className='header-group'>
