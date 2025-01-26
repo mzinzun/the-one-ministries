@@ -72,7 +72,9 @@ const Morals = ({ user, setUser, scrips }) => {
     for (let s of scrips) {
         scripObj[s.quote] = <span data-tooltip-id="tooltip" className="testHover" data-tooltip-content={s.scripture}>{s.quote}</span>
     }
-
+    console.log('scripObj'
+        , scripObj
+    )
     return (
         <div className="morals-content">
             <div className='border content-header'>

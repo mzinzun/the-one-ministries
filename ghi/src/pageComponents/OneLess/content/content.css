@@ -2,7 +2,24 @@
     /* background-color: blueviolet; */
     padding: 1rem 0;
 }
-
+#tooltip {
+    font-size: 1.25rem !important;
+    color:antiquewhite !important;
+    max-width: 30rem !important;
+    white-space: pre-line !important;
+    /* background-color:#333 !important; */
+    border-radius: 8px !important;
+    padding: 10px !important;
+    text-align: left !important;
+    z-index: 1000 !important;
+}
+.tipText {
+    color: red;
+}
+.tipText:hover {
+    cursor:pointer !important;
+    background-color: yellow;
+}
 /* MeetGod */
 /* Salvation */
 .salvation-content p {
@@ -93,7 +110,7 @@ ul {
 
 /* Confess Sins */
 .confess-content {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     padding: 0;
     margin: 0;
     /* height: 250px; */
@@ -104,9 +121,19 @@ ul {
     position: relative;
     min-height: 35rem;
     display: flex;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
-.sinCross {
+.sinCross1 {
+    flex: 1 1 0;
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* display: none; */
+}
+.sinCross2 {
     flex: 1 1 0;
     border: 2px solid red;
     display: flex;
@@ -117,11 +144,13 @@ ul {
 
 .sinCross>div {
     flex: 1 1 0;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     overflow: auto;
 }
 .sinCross img {
     z-index: 10;
+
+
 }
 .sins {
     width: 100%;
@@ -147,11 +176,13 @@ ul {
     width: 200px;
     height: 200px;
     background-color: black;
-    transition: all 5s linear;
+    transition: left 5s linear;
+    transition: background-color .5s linear;
+
 }
 
 .cleanseSins {
-    animation: moveAcross 5s linear 1;
+    animation: moveAcross 3s linear 1;
     background-color: red !important;
 }
 
@@ -166,7 +197,23 @@ ul {
     overflow: hidden;
     width: 200px;
     height: 200px;
+    border-radius: 15%;
 
+}
+.crossEnd {
+    border: 2px solid green !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    z-index: 150;
+    overflow: hidden !important;
+    transition: all 1s linear;
+}
+.forgiveText {
+    z-index: 200;
 }
 
 @keyframes moveAcross {
@@ -188,4 +235,35 @@ ul {
     height: 100px;
     background-color: red;
     /* animation: moveAcross 5s linear infinite; */
+}
+
+/* +++++++++++++  Oneliners.jsx  +++++++++++++ */
+.oneLiner {
+    border: 2px groove black;
+    border-radius: .5rem;
+    background-color: rgba(128, 128, 128, 0.417);
+    padding: .5rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    /* white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-wrap: break-word !important; */
+
+}
+.custom-dropdown .dropdown-menu {
+    /* width: 60vw; */
+    margin: 0 auto !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-wrap: break-word !important;
+    background-color: sandybrown;
+    /* overflow: auto !important; */
+
+     /* Set the desired width */
+  }
+
+.custom-dropdown a {
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-wrap: break-word !important;
 }

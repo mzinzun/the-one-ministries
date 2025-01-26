@@ -13,7 +13,7 @@ import EternallySecure from './content/EternallySecure';
 import WalkWord from './content/WalkWord';
 import Encourage from './content/Encourage';
 import Introduction from './content/Introduction';
-// import Oneliners from './content/Oneliners';
+import Oneliners from './content/Oneliners';
 
 const OneLess = ({user, setUser}) => {
   // const [data, setData] = useState(null);
@@ -63,8 +63,8 @@ const OneLess = ({user, setUser}) => {
       case 'Eternally Secure':
         return <EternallySecure />;
       case 'One Liners for meditation (words of Wisdom)':
-        return <p>Will fix issue in Oneliners.jsx</p>;
-      case 'A Walk in The Word (Bible Study)':
+        return <Oneliners />;
+      case 'A Walk':
         return <WalkWord />;
       case 'Encourage Me':
         return <Encourage />;
@@ -95,7 +95,7 @@ const OneLess = ({user, setUser}) => {
               <button ref={el => buttonsRef.current[5] = el} onClick={handleClick}>Confess My Sins</button>
               <button ref={el => buttonsRef.current[6] = el} onClick={handleClick}>Eternally Secure</button>
               <button ref={el => buttonsRef.current[7] = el} onClick={handleClick}>One Liners for meditation (words of Wisdom)</button>
-              <button ref={el => buttonsRef.current[8] = el} onClick={handleClick}>A Walk in The Word (Bible Study)</button>
+              <button ref={el => buttonsRef.current[8] = el} onClick={handleClick}>A Walk</button>
             </li>
             <li><h4>Sharing With Christians</h4>
               <button ref={el => buttonsRef.current[9] = el} onClick={handleClick}>Encourage Me</button>

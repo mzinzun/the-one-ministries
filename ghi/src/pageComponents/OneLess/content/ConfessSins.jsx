@@ -4,7 +4,6 @@ import { Button } from 'react-bootstrap';
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip';
 import crossStart from './one-less-assets/crossStart.png'
-import crossEnd from './one-less-assets/crossEnd.png'
 import finish from './one-less-assets/cross10.png'
 
 const ConfessSins = () => {
@@ -14,10 +13,8 @@ const ConfessSins = () => {
   const [sin, setSin] = useState('');
   const [sinList, setSinList] = useState(["Lust"]);
   const crossStartRef = useRef(null); // Create a ref for the element with id='crossStart'
-
-
-  // Initialize state prior to animantion
-//   const [slider, setSlider] = useState({ slider: false, sin: "" })
+  const crossEndRef = useRef(null); // Create a ref for the element with id='crossStart'
+  const forgiveTextRef = useRef(null); // Create a ref for the element with id='crossStart'
 
   const getData = async () => {
     const resp = await fetch('http://localhost:4000/get_scriptures')
@@ -30,16 +27,25 @@ const ConfessSins = () => {
 
   let scripObj = {}
   for (let s of scrips) {
-    scripObj[s.quote] = <span data-toggle="tooltip" className="testHover" href="#" title={s.scripture}>{s.quote}</span>
+    scripObj[s.quote] = <span data-tooltip-id="tooltip" className="testHover" data-tooltip-content={s.scripture}>{s.quote}</span>
   }
   const addSin = () => {
-	const updateList = sinList?[...sinList, sin]:[sin];
-	sinList?setSinList(updateList):setSinList([sin]);
-	setSin('');
+    const updateList = sinList ? [...sinList, sin] : [sin];
+    sinList ? setSinList(updateList) : setSinList([sin]);
+    setSin('');
   }
   const cleanseSins = () => {
-	if (crossStartRef.current) {
+    if (crossStartRef.current) {
       crossStartRef.current.classList.add('cleanseSins'); // Add the class to the element
+      setTimeout(() => {
+        crossStartRef.current.classList.remove('cleanseSins'); // Remove the class after 1 second
+        crossEndRef.current.classList.add('crossEnd'); // Add the class to the element
+        // setSinList([]);
+      }, 3000);
+      setTimeout(() => {
+        // remove the d-none class from the forgiveText div
+        forgiveTextRef.current.classList.remove('d-none');
+      }, 4500);
     }
   }
 
@@ -50,7 +56,7 @@ const ConfessSins = () => {
       </div>
 
       <div className='border confessSin'>
-        <p className="confessSin">Sin is real and something everyone faces on a "many times a day" basis. Accepting that we live in a fallen world and that we all sin and fall short of God's glory ({scripObj['Romans 3:23']}) it is important that we <u className="define point vocab" data-toggle="tooltip" data-html="true" title="Confess - CONFESS YOUR SINS -
+        <p className="confessSin">Sin is real and something everyone faces on a "many times a day" basis. Accepting that we live in a fallen world and that we all sin and fall short of God's glory ({scripObj['Romans 3:23']}) it is important that we <u className="define point vocab" data-tooltip-id="tooltip" data-tooltip-content="Confess - CONFESS YOUR SINS -
           1. To freely agree or acknowledge that you violated God's law by your willful act.
           2. Display real sorrow over your sin.
           3. Ask God to cover your sin with the blood of Jesus and forgive you.
@@ -58,7 +64,9 @@ const ConfessSins = () => {
           transfer or move past our sins. We do this willingly and voluntarily because as {scripObj['Romans 8:1-2']} says, there is no
           condemnation for those who are in Jesus Christ and that God will never be angry with us again ({scripObj['Isaiah 54:9-10']}). Try this animated exercise to help you visualize the process from
           confession to forgiveness and
-          then walk forward under <u className="define point vocab" data-toggle="tooltip" data-html="true" title="Grace - 1. God's unmerited favor. 2. Receiving a gift from God that you do not deserve. For Example see Romans 11:5-6.">grace</u>.
+          then walk forward under <u className="define point vocab" data-tooltip-id="tooltip" data-html="true" data-tooltip-content="Grace:
+           1. God's unmerited favor.
+           2. Receiving a gift from God that you do not deserve. For Example see Romans 11:5-6.">grace</u>.
         </p>
         <p className="confessSin">This is the animaition only. It is an opportunity for you to see and feel in action what you are
           doing through prayer. Watch as you send your repented sin to the cross how it darkens your blanket and then is
@@ -67,32 +75,40 @@ const ConfessSins = () => {
           forgiveness of your sins.</p>
       </div>
       <div className="confessAnimator">
-        <section className="sinCross">
+        <section className="sinCross1 sinCross">
           <div className='' ref={crossStartRef} id='crossStart'>
-				<div className='sins text-white p-4'>
-					<h6 className=''>{sinList&&sinList.map((item,idx)=><p className='text-center'key={idx}>{item}</p>)}</h6>
-				</div>
+            <div className='sins text-white p-4'>
+              <h6 className=''>{sinList && sinList.map((item, idx) => <p className='text-center' key={idx}>{item}</p>)}</h6>
+            </div>
             <img src={crossStart} />
           </div>
           <div></div>
 
           <div>
             <h5>Enter a Sin</h5>
-				<input
-            type="text"
-            className="form-control"
-            placeholder="Enter your sin"
-            value={sin}
-            onChange={(e)=>setSin(e.target.value)}
-          />
-			 <Button onClick={addSin}>Add to Cross</Button>
-			 <Button onClick={cleanseSins}>Cleanse Sins</Button>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter your sin"
+              value={sin}
+              onChange={(e) => setSin(e.target.value)}
+            />
+            <Button onClick={addSin}>Send to Cross</Button>
+            <Button onClick={cleanseSins}>Cleanse Sins</Button>
           </div>
         </section>
-        <section className="sinCross">
-          <div className='crossEnd' id='crossEnd'><img src={finish} /></div>
+        <section className="sinCross2 sinCross">
+          <div ref={crossEndRef} className='' id='crossEnd'><img src={finish} /></div>
           <div></div>
-          <div><h5>enter sin</h5></div>
+          <div ref={forgiveTextRef} className='d-none forgiveText text-white'>
+
+            <h5>God is faithful to forgive</h5>
+            <ul>
+              {sinList && sinList.map((item, idx) => <li className='text-center' key={idx}>{item}</li>)}
+            </ul>
+
+            <h5>JESUS Nailed your SINS to the CROSS and WASHED them with his BLOOD</h5>
+            <h4 className='text-shadow text-warning'>IT IS FINISHED</h4></div>
         </section>
       </div>
       <Tooltip className='' id="tooltip" place="right"

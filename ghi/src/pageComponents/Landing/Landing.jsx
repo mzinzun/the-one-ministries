@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import './Landing.css'
-import scriptArray from './scriptArray.json';
+// import {scriptures as scriptArray} from '../../assets/Statements'
+import scriptArray from './scriptArray.json'
 import Welcome from '../../components/Welcome/'
 import Footer from '../../components/Footer'
 import { Link } from 'react-router';

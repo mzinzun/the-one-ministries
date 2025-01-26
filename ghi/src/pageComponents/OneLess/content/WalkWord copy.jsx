@@ -4,7 +4,7 @@ import { Accordion, Button } from 'react-bootstrap';
 
 const WalkWord = () => {
 
-  const [newEntry, setNewEntry] = useState([]);
+  const [newEntry, setNewEntry] = useState('');
   const [journalEntry, setJournalEntry] = useState([]);
   const [studies, setStudies] = useState([]);
   const [currentStudy, setCurrentStudy] = useState([]);
@@ -60,47 +60,8 @@ const WalkWord = () => {
       <h1>A Walk in the Word<br /><span className="pix20">Daily Devotionals and Bible Study</span></h1>
 
       {/* Devotional Toggle Actions */}
-      <Accordion defaultActiveKey="0" className='row'>
-        <Accordion.Item eventKey="0" className='col-3'>
-          <Accordion.Header>By Bible</Accordion.Header>
-          <Accordion.Body>
-            <ul className="top devoBtn1">
-              <li className="rojo">PLACEHOLDER</li>
-              <li>Old Testament</li>
-              <li>New Testament</li>
-            </ul>
-          </Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item eventKey="1" className='col-3'>
-          <Accordion.Header>By Theme</Accordion.Header>
-          <Accordion.Body>
-          <ul>
-              {studies&&studies.map((item, idx) => (<li id={idx} key={item._id} className="point" onClick={handleTopics}>{item.title}</li>))}
-              </ul>
-          </Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item eventKey="2" className='col-3'>
-          <Accordion.Header>By Book of the Bible</Accordion.Header>
-          <Accordion.Body>
-          <div className="top devoBtn3">
-              <ul>
-                <li className="rojo">PLACEHOLDER</li>
-              </ul>
-              <ol>Old Testament
-                <li>Genesis</li>
-                <li>Exodus</li>
-              </ol>
-              <ol>New Testament
-                <li>Matthew</li>
-                <li>Mark</li>
-              </ol>
-            </div>
-          </Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
 
-
-      {/* <Accordion className="devotions">
+      <Accordion className="devotions">
         <div>
           <div className="top devoBtn1">
             <Accordion.Toggle className="everyDevoBtn" as="button" variant="link" eventKey={"1"} >
@@ -188,7 +149,8 @@ const WalkWord = () => {
             </ul>
           </Accordion.Collapse>
         </div>
-      </Accordion> */}
+      </Accordion>
+      <br />
       <div className="white">
         <li>Small Bite: One Bible Verse</li>
         <li>Big Bite: One passage of cohesive scripture</li>
@@ -196,12 +158,12 @@ const WalkWord = () => {
       <br /><br />
 
       <br />
-      {currentStudy && currentStudy.map(item => (
-        <div key={item._id} className="currStudy">
-          <h3 className="pix25">{item.title}</h3>
-          {item.topics.map((topic, idx) => <p key={idx}>{topic.name}</p>)}
-        </div>
-      ))}
+      {currentStudy&&currentStudy.map(item => (
+    <div key={item._id} className="currStudy">
+      <h3 className="pix25">{item.title}</h3>
+      {item.topics.map((topic, idx) => <p key={idx}>{topic.name}</p>)}
+    </div>
+  ))}
       <br />
 
       <div>
