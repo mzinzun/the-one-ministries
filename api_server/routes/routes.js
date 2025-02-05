@@ -32,6 +32,8 @@ module.exports = (app) => {
 // app.post('/login', user_Controller.login);
 // app.post('/contribution', authenticateToken,contirbution_Controller.createContribution);
 
+// ******** new user routes *********//
+app.post('/subscribe', user_Controller.subscribe);
 
 app.get('/get_charity', charity_Controller.getCharity)
 app.get('/get_scriptures', scrip_Controller.getScriptures)

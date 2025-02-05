@@ -25,7 +25,6 @@ function Landing({user}) {
                             <Link to='/news'>
                                 <h2>News Story Headlines</h2>
                             </Link>
-
                         </section>
                         <section className='landing-thoughts border'>
                             <h2>Thoughts for the Week</h2>

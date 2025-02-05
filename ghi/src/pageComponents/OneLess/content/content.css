@@ -267,3 +267,9 @@ ul {
     overflow-wrap: normal !important;
     word-wrap: break-word !important;
 }
+.scrollable-menu {
+    height: auto;
+    max-height: 100px;
+    overflow:scroll;
+
+}

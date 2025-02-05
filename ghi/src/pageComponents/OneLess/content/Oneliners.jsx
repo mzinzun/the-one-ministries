@@ -33,9 +33,8 @@ const Oneliners = () => {
 
     return (
         <div className="">
-            <h3>One Liners for the Day</h3>
-            <br />
-            <p></p>
+            <h2><b>One Liners for the Day</b></h2>
+
             <div className="shootPics row justify-content-between m-0 p-2">
                 <img className="col-md-4 p-4 img cloud " src={cross} alt="church" />
                 <img className="col-md-4 p-4 img cloud " src={cross} alt="church" />

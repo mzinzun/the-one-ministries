@@ -1,23 +1,30 @@
 import { useState, useEffect } from 'react';
-import { Accordion, Button } from 'react-bootstrap';
-
-
+import { Button, Dropdown, Form } from 'react-bootstrap';
+import axios from 'axios';
 const WalkWord = () => {
 
   const [newEntry, setNewEntry] = useState([]);
   const [journalEntry, setJournalEntry] = useState([]);
   const [studies, setStudies] = useState([]);
-  const [currentStudy, setCurrentStudy] = useState([]);
+  const [currentStudy, setCurrentStudy] = useState(null);
+  const [topics, setTopics] = useState([]);
   // let logCount = 0;
 
-  const deepcopy = (obj) => {
-    return JSON.parse(JSON.stringify(obj))
+  //  configuration for Dropdown options
+  const [bibleSelected, setBibleSelected] = useState('Choose an option');
+
+  const handleSelect = (eventKey, e) => {
+    console.log(`e`, e.target.eventKey);
+    setCurrentStudy(studies.filter(item => item.title === e.target.eventKey));;
+
   }
+
+  //  end configuration for Dropdown options
 
   const getData = async () => {
     console.log(" getdata accessed")
-    const resp = await fetch('http://localhost:4000/get_studies')
-    const data = await resp.json()
+    const resp = await axios.get('http://localhost:4000/get_studies')
+    const data = resp.data
     setStudies(data)
   }
   useEffect(() => {
@@ -42,7 +49,8 @@ const WalkWord = () => {
 
   const handleTopics = async (e) => {
     e.preventDefault();
-    setCurrentStudy([studies[e.target.id]]);
+    console.log(`e`, e.target.eventKey);
+    setCurrentStudy(studies.filter(item => item.title === e.target.eventKey));
   }
   // const lis = studies.map((item, idx) => (<li id={idx} key={item._id} className="point" onClick={handleTopics}>{item.title}</li>))
 
@@ -57,165 +65,118 @@ const WalkWord = () => {
 
   return (
     <div> {/* Parent Div */}
-      <h1>A Walk in the Word<br /><span className="pix20">Daily Devotionals and Bible Study</span></h1>
-
-      {/* Devotional Toggle Actions */}
-      <Accordion defaultActiveKey="0" className='row'>
-        <Accordion.Item eventKey="0" className='col-3'>
-          <Accordion.Header>By Bible</Accordion.Header>
-          <Accordion.Body>
-            <ul className="top devoBtn1">
-              <li className="rojo">PLACEHOLDER</li>
-              <li>Old Testament</li>
-              <li>New Testament</li>
-            </ul>
-          </Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item eventKey="1" className='col-3'>
-          <Accordion.Header>By Theme</Accordion.Header>
-          <Accordion.Body>
-          <ul>
-              {studies&&studies.map((item, idx) => (<li id={idx} key={item._id} className="point" onClick={handleTopics}>{item.title}</li>))}
-              </ul>
-          </Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item eventKey="2" className='col-3'>
-          <Accordion.Header>By Book of the Bible</Accordion.Header>
-          <Accordion.Body>
-          <div className="top devoBtn3">
-              <ul>
-                <li className="rojo">PLACEHOLDER</li>
-              </ul>
-              <ol>Old Testament
-                <li>Genesis</li>
-                <li>Exodus</li>
-              </ol>
-              <ol>New Testament
-                <li>Matthew</li>
-                <li>Mark</li>
-              </ol>
-            </div>
-          </Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
-
-
-      {/* <Accordion className="devotions">
-        <div>
-          <div className="top devoBtn1">
-            <Accordion.Toggle className="everyDevoBtn" as="button" variant="link" eventKey={"1"} >
-              By Bible
-            </Accordion.Toggle>
-          </div>
-          <Accordion.Collapse eventKey="1">
-            <ul className="top devoBtn1">
-              <li className="rojo">PLACEHOLDER</li>
-              <li>Old Testament</li>
-              <li>New Testament</li>
-            </ul>
-          </Accordion.Collapse>
-        </div>
-
-        <div>
-          <div className="top devoBtn2">
-            <Accordion.Toggle className="everyDevoBtn" as="button" variant="link" eventKey="2" onClick={() => setCurrentStudy([])}>
-              By Theme
-            </Accordion.Toggle>
-          </div>
-          <Accordion.Collapse eventKey="2">
-            <div className="top devoBtn2">
-              <ul>
-              {studies&&studies.map((item, idx) => (<li id={idx} key={item._id} className="point" onClick={handleTopics}>{item.title}</li>))}
-              </ul>
-            </div>
-          </Accordion.Collapse>
-        </div>
-
-        <div>
-          <div className="top devoBtn3">
-            <Accordion.Toggle className="everyDevoBtn" as="button" variant="link" eventKey="3">
-              By Book of the Bible
-            </Accordion.Toggle>
-          </div>
-          <Accordion.Collapse eventKey="3">
-            <div className="top devoBtn3">
-              <ul>
-                <li className="rojo">PLACEHOLDER</li>
-              </ul>
-              <ol>Old Testament
-                <li>Genesis</li>
-                <li>Exodus</li>
-              </ol>
-              <ol>New Testament
-                <li>Matthew</li>
-                <li>Mark</li>
-              </ol>
-            </div>
-          </Accordion.Collapse>
-        </div>
-
-        <div>
-          <div className="top devoBtn4">
-            <Accordion.Toggle className="everyDevoBtn" as="button" variant="link" eventKey="4">
-              By Character
-            </Accordion.Toggle>
-          </div>
-          <Accordion.Collapse eventKey="4">
-            <ul className="top devoBtn4">
-              <li className="rojo">PLACEHOLDER</li>
-              <li>God</li>
-              <li>Jesus</li>
-              <li>Moses</li>
-              <li>Paul</li>
-              <li>Elijah</li>
-              <li>Peter</li>
-            </ul>
-          </Accordion.Collapse>
-        </div>
-
-        <div>
-          <div className="top devoBtn5">
-            <Accordion.Toggle className="everyDevoBtn" as="button" variant="link" eventKey="5">
-              By Prophet
-            </Accordion.Toggle>
-          </div>
-          <Accordion.Collapse eventKey="5">
-            <ul className="top devoBtn5">
-              <li className="rojo">PLACEHOLDER</li>
-              <li>Isaiah</li>
-              <li>Jeremiah</li>
-              <li>Ezekiel</li>
-            </ul>
-          </Accordion.Collapse>
-        </div>
-      </Accordion> */}
-      <div className="white">
-        <li>Small Bite: One Bible Verse</li>
-        <li>Big Bite: One passage of cohesive scripture</li>
+      <div>
+        <h2><b>A Walk in the Word</b></h2>
+        <h3>Daily Devotionals and Bible Study</h3>
       </div>
-      <br /><br />
 
-      <br />
+      <div className='study-menu'>
+        <p>Study By: {bibleSelected} selected</p>
+        <div className='row'>
+        <Dropdown onSelect={handleSelect} id={'prophet'} className='col-2'>
+            <Dropdown.Toggle variant="primary" id="dropdown-basic">
+              Study Group
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu className='scrollable-menu'>
+
+              <Dropdown.Item eventKey="small-bite">Small Bite (one verse)</Dropdown.Item>
+              <Dropdown.Item eventKey="big-bite">One Passage of Cohesive Scripture</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown onSelect={handleSelect} id={'bible'} className='col-2'>
+            <Dropdown.Toggle variant="primary" id="dropdown-basic">
+              By Bible
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item eventKey="Placeholder" >Placeholder</Dropdown.Item>
+              <Dropdown.Item eventKey="Old Testement" >Old Testement</Dropdown.Item>
+              <Dropdown.Item eventKey="New Testement" >New Testement</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown onSelect={handleSelect} id={'theme'} className='col-2'>
+            <Dropdown.Toggle variant="primary" id="dropdown-basic">
+              By Theme
+            </Dropdown.Toggle>
+            <Dropdown.Menu className='scrollable-menu'>
+              <Dropdown.Item eventKey="Need For The New Life" >Need For The New Life</Dropdown.Item>
+              <Dropdown.Item eventKey="Sharing Our Faith" >Sharing Our Faith</Dropdown.Item>
+              <Dropdown.Item eventKey="Suffering" >Suffering</Dropdown.Item>
+              <Dropdown.Item eventKey="Human Government" >Human Government</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown onSelect={handleSelect} id={'book'} className='col-2'>
+            <Dropdown.Toggle variant="primary" id="dropdown-basic">
+              By Book
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu className='scrollable-menu'>
+
+              <Dropdown.Item eventKey="placeholder" className="rojo">PLACEHOLDER</Dropdown.Item>
+              <Dropdown.Header>Old Testament</Dropdown.Header>
+              <Dropdown.Item eventKey="genesis">Genesis</Dropdown.Item>
+              <Dropdown.Item eventKey="exodus">Exodus</Dropdown.Item>
+              <Dropdown.Header>New Testament</Dropdown.Header>
+              <Dropdown.Item eventKey="matthew">Matthew</Dropdown.Item>
+              <Dropdown.Item eventKey="mark">Mark</Dropdown.Item>
+
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown onSelect={handleSelect} id={'character'} className='col-2'>
+            <Dropdown.Toggle variant="primary" id="dropdown-basic">
+              By Character
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu className='scrollable-menu'>
+              <Dropdown.Item eventKey="placeholder" className="rojo">PLACEHOLDER</Dropdown.Item>
+              <Dropdown.Item eventKey="god">God</Dropdown.Item>
+              <Dropdown.Item eventKey="jesus">Jesus</Dropdown.Item>
+              <Dropdown.Item eventKey="moses">Moses</Dropdown.Item>
+              <Dropdown.Item eventKey="paul">Paul</Dropdown.Item>
+              <Dropdown.Item eventKey="elijah">Elijah</Dropdown.Item>
+              <Dropdown.Item eventKey="peter">Peter</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown onSelect={handleSelect} id={'prophet'} className='col-2'>
+            <Dropdown.Toggle variant="primary" id="dropdown-basic">
+              By Prophet
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu className='scrollable-menu'>
+              <Dropdown.Item eventKey="placeholder" className="rojo">PLACEHOLDER</Dropdown.Item>
+              <Dropdown.Item eventKey="isaiah">Isaiah</Dropdown.Item>
+              <Dropdown.Item eventKey="jeremiah">Jeremiah</Dropdown.Item>
+              <Dropdown.Item eventKey="ezekiel">Ezekiel</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
+      </div>
+      <div className='mt-2 studies border border-primary border-4 rounded'>
+      <h2>Studies</h2>
+      {currentStudy||<h3>Select a Study</h3>}
       {currentStudy && currentStudy.map(item => (
         <div key={item._id} className="currStudy">
-          <h3 className="pix25">{item.title}</h3>
+          <h3 className="pix25">Current Study: {item.title}</h3>
           {item.topics.map((topic, idx) => <p key={idx}>{topic.name}</p>)}
         </div>
       ))}
-      <br />
+      </div>
 
       <div>
-        <form id="entry" onSubmit={submit}>
-          <input type="text"
-            className="form-control clear"
-            id="myJournal"
-            placeholder="Notes On My Study"
-            value={journalEntry}
-            onChange={(e) => setJournalEntry(e.target.value)}
-          />
-          <br />
-          <Button type="button" id="" className="btn btn-secondary mb-2">Submit</Button>
-        </form>
+        <Form id="entry" onSubmit={submit}>
+          <Form.Group controlId="myJournal">
+            <Form.Label><strong>Notes On My Study</strong></Form.Label>
+            <Form.Control
+              as="textarea"
+              className="form-control clear "
+              placeholder="Enter your notes press Save to save notes"
+              value={journalEntry}
+              onChange={(e) => setJournalEntry(e.target.value)}
+            />
+          </Form.Group>
+          <Button type="submit" className="btn btn-secondary mb-2">Save</Button>
+        </Form>
       </div>
 
       <div className="myEntry">

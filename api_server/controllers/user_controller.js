@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const bcrypt = require('bcryptjs');
 // const createJWT = require('../helper/createJWT');
 
 module.exports = {
@@ -25,6 +26,39 @@ module.exports = {
     //             res.json({ success: false, message: "problem! problem problem!" })
     //         })
     // },
+
+    subscribe: async (req, res) => {
+        console.log('preparing to create user with req.body', req.body);
+        // *** will be added for initial users added. Hash passwords using bcrypt
+        // const bcrypt = require('bcryptjs');
+        // const password = '56789'; // Replace with your desired password
+        // const saltRounds = 10;
+
+        // bcrypt.hash(password, saltRounds, (err, hash) => {
+        //   if (err) {
+        //     console.error('Error hashing password:', err);
+        //   } else {
+        //     console.log('Hashed password:', hash);
+        //   }
+        // });
+
+        // password hashing is performed in the User model
+        try {
+            const newUser = await User.create(req.body);
+            console.log('newUser:', newUser);
+            res.status(200).json({
+                success: true,
+                message: 'User created successfully',
+                user: newUser,
+            });
+        } catch (error) {
+            console.error('Error creating user:', error);
+            res.status(500).json({
+                success: false,
+                message: 'Failed to create user',
+            });
+        }
+    },
     getUser: (req, res) => {
         User.findById(req.params.id)
             .then(user => {
@@ -55,11 +89,11 @@ module.exports = {
             // Create a new user if new user
             const createdUser = await User.create(req.body);
             // Generate token
-            const token = await createJWT(createdUser);
+            // const token = await createJWT(createdUser);
             // Return token to Frontend
             return res.status(200).json({
                 success: true,
-                token: token,
+                // token: token,
                 message: 'Created user successfully.',
                 user: createdUser
             });
