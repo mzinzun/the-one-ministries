@@ -16,8 +16,8 @@ function Landing({user}) {
         }, 5000)
     }, [])
     return (
-        <>
-            <main className="landing">
+        <div className="landing">
+            <main >
             <div>{user&&<h3>Welcome {user.firstName}</h3>}</div>
                 <section className='landing-section'>
                     <div className='news-thoughts-div'>
@@ -44,7 +44,7 @@ function Landing({user}) {
             </main>
             <Footer />
 
-        </>
+        </div>
 
     )
 }

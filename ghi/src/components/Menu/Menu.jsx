@@ -22,7 +22,7 @@ const Menu = ({user}) => {
     <Navbar expand="lg" className='nav1' expanded={expanded}>
       <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleToggle} />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto nav2">
+        <Nav className="mr-auto">
           {location.pathname !== '/' &&
           <Nav.Link as={Link} to="/" onClick={handleLinkClick}>Home</Nav.Link>}
           <Nav.Link as={Link} to="/about" onClick={handleLinkClick}>About</Nav.Link>

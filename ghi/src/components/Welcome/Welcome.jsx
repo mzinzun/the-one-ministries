@@ -1,4 +1,4 @@
-import { Image } from 'react-bootstrap'
+
 import welcome1 from '../../assets/images/welcome1.png'
 import welcome2 from '../../assets/images/welcome2.png'
 import './welcome.css'
