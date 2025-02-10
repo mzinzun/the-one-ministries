@@ -273,3 +273,13 @@ ul {
     overflow:scroll;
 
 }
+/* +++++++++++++  WalkWord.jsx  +++++++++++++ */
+.studies {
+    height: 50vh;
+    overflow: auto;
+}
+
+/* +++++++++++++  Encourage.jsx  +++++++++++++ */
+.encourage-content {
+    padding: 3rem 0;
+}

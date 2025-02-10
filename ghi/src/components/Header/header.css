@@ -9,7 +9,7 @@
   justify-content: space-between;
   font-size: 2em;
   color: white;
-  z-index: 100;
+  z-index: 1000;
 }
 header-group {
   flex: 1;
@@ -31,4 +31,5 @@ header-group {
   justify-content: space-between;
   width: 100%;
   padding: 1rem;
+  z-index:1000;
 }

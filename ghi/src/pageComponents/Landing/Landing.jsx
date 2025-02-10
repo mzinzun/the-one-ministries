@@ -6,6 +6,7 @@ import scriptArray from './scriptArray.json'
 import Welcome from '../../components/Welcome/'
 import Footer from '../../components/Footer'
 import { Link } from 'react-router';
+import thoughtOfDay from '../../assets/images/thoughtOfDay.png'
 function Landing({user}) {
     const [scripture, setScripture] = useState(0);
     useEffect(() => {
@@ -27,7 +28,8 @@ function Landing({user}) {
                             </Link>
                         </section>
                         <section className='landing-thoughts border'>
-                            <h2>Thoughts for the Week</h2>
+                            {/* <h2>Thoughts for the Week</h2> */}
+                            {/* <img className='w-100' src={thoughtOfDay} alt='placeholder' /> */}
                         </section>
                     </div>
 

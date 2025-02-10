@@ -7,14 +7,17 @@ const WalkWord = () => {
   const [journalEntry, setJournalEntry] = useState([]);
   const [studies, setStudies] = useState([]);
   const [currentStudy, setCurrentStudy] = useState(null);
+
   const [topics, setTopics] = useState([]);
   // let logCount = 0;
 
   //  configuration for Dropdown options
-  const [bibleSelected, setBibleSelected] = useState('Choose an option');
+  const [studySelected, setStudySelected] = useState('Choose an option');
 
-  const handleSelect = (eventKey, e) => {
-    console.log(`e`, e.target.eventKey);
+  const handleSelect = async (eventKey, e) => {
+    console.log(`e`, eventKey);
+    await setStudySelected(eventKey);
+    console.log(`studySelected`, studySelected);
     setCurrentStudy(studies.filter(item => item.title === e.target.eventKey));;
 
   }
@@ -71,9 +74,9 @@ const WalkWord = () => {
       </div>
 
       <div className='study-menu'>
-        <p>Study By: {bibleSelected} selected</p>
+        <p>Study By: {studySelected} selected</p>
         <div className='row'>
-        <Dropdown onSelect={handleSelect} id={'prophet'} className='col-2'>
+          <Dropdown onSelect={handleSelect} id={'prophet'} className='col-2'>
             <Dropdown.Toggle variant="primary" id="dropdown-basic">
               Study Group
             </Dropdown.Toggle>
@@ -130,12 +133,12 @@ const WalkWord = () => {
 
             <Dropdown.Menu className='scrollable-menu'>
               <Dropdown.Item eventKey="placeholder" className="rojo">PLACEHOLDER</Dropdown.Item>
-              <Dropdown.Item eventKey="god">God</Dropdown.Item>
-              <Dropdown.Item eventKey="jesus">Jesus</Dropdown.Item>
-              <Dropdown.Item eventKey="moses">Moses</Dropdown.Item>
-              <Dropdown.Item eventKey="paul">Paul</Dropdown.Item>
-              <Dropdown.Item eventKey="elijah">Elijah</Dropdown.Item>
-              <Dropdown.Item eventKey="peter">Peter</Dropdown.Item>
+              <Dropdown.Item eventKey="God">God</Dropdown.Item>
+              <Dropdown.Item eventKey="Jesus">Jesus</Dropdown.Item>
+              <Dropdown.Item eventKey="Moses">Moses</Dropdown.Item>
+              <Dropdown.Item eventKey="Paul">Paul</Dropdown.Item>
+              <Dropdown.Item eventKey="Elijah">Elijah</Dropdown.Item>
+              <Dropdown.Item eventKey="Peter">Peter</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown onSelect={handleSelect} id={'prophet'} className='col-2'>
@@ -153,14 +156,14 @@ const WalkWord = () => {
         </div>
       </div>
       <div className='mt-2 studies border border-primary border-4 rounded'>
-      <h2>Studies</h2>
-      {currentStudy||<h3>Select a Study</h3>}
-      {currentStudy && currentStudy.map(item => (
-        <div key={item._id} className="currStudy">
-          <h3 className="pix25">Current Study: {item.title}</h3>
-          {item.topics.map((topic, idx) => <p key={idx}>{topic.name}</p>)}
-        </div>
-      ))}
+        <h2>Studies</h2>
+        {currentStudy || <h3>Select a Study</h3>}
+        {currentStudy && currentStudy.map(item => (
+          <div key={item._id} className="currStudy">
+            <h3 className="pix25">Current Study: {item.title}</h3>
+            {item.topics.map((topic, idx) => <p key={idx}>{topic.name}</p>)}
+          </div>
+        ))}
       </div>
 
       <div>

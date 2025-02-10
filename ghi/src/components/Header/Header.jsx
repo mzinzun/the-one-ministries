@@ -14,7 +14,7 @@ const Header = ({ user }) => {
             <div className='col-6'>
                 <img src={title} alt='title' className='img img-fluid' />
             </div>
-            <Menu user={user} className=''/>
+            <Menu user={user} className='header-menu'/>
         </header>
     )
 }
